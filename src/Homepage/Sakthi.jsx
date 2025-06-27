@@ -56,7 +56,7 @@ const Sakthi = () => (
         font-size: 3.8rem;
         font-weight: 400;
         color: rgb(44, 62, 81);
-        margin-top: 2rem;
+        margin-top: 5rem;
         margin-bottom: 1.2rem;
         margin-left: 1rem;
         line-height: 1.2;
@@ -168,10 +168,10 @@ const Sakthi = () => (
         align-items: center;
         flex-wrap: wrap;
         gap: 22px;
-        max-width: 1200px;
+        max-width: 1150px;
         position: relative;
         z-index: 5;
-        margin-top: 1.3rem;
+        margin-top: 1.1rem;
       }
 
       .sakthi-booking-item {

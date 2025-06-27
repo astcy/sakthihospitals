@@ -50,13 +50,15 @@ const Meet = () => {
     <section
       style={{
         background: "#fff",
-        padding: "60px 20px",
+        padding: "60px 40px", // Increased side margin
         textAlign: "center",
         fontFamily: "'Segoe UI', sans-serif",
         minHeight: "100vh",
         boxSizing: "border-box",
         maxWidth: "1300px",
-        margin: "0 auto", // Ensure center alignment on all devices
+        width: "100%",
+        margin: "0 auto",
+        overflowX: "hidden",
       }}
     >
       <div style={{ marginBottom: 60 }}>
@@ -103,8 +105,9 @@ const Meet = () => {
               onMouseEnter={() => setHovered(index)}
               onMouseLeave={() => setHovered(null)}
               style={{
-                width: 375,
-                minHeight: 500,
+                width: "100%",
+                maxWidth: 320, // Reduced card width
+                minHeight: 520,
                 borderRadius: 18,
                 boxShadow: isHovered
                   ? "0 4px 16px 0 rgba(28,56,90,0.07)"
@@ -129,7 +132,6 @@ const Meet = () => {
                   alignItems: "center",
                   justifyContent: "center",
                   overflow: "hidden",
-                  boxSizing: "border-box",
                 }}
               >
                 <img
@@ -147,7 +149,7 @@ const Meet = () => {
               </div>
               <h3
                 style={{
-                  fontSize: 24,
+                  fontSize: 22,
                   fontWeight: 700,
                   color: "#1e293b",
                   margin: "10px 0 6px",
@@ -158,7 +160,7 @@ const Meet = () => {
               </h3>
               <p
                 style={{
-                  fontSize: 14,
+                  fontSize: 13,
                   color: "#334155",
                   margin: "0 0 12px",
                   fontWeight: 500,
@@ -169,7 +171,7 @@ const Meet = () => {
               </p>
               <p
                 style={{
-                  fontSize: 14,
+                  fontSize: 13,
                   color: "#64748b",
                   lineHeight: 1.6,
                   fontFamily: "'Poppins', sans-serif",
@@ -195,8 +197,8 @@ const Meet = () => {
                     style={{
                       background: "#e8f4fd",
                       color: "#2563eb",
-                      width: 38,
-                      height: 38,
+                      width: 36,
+                      height: 36,
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",

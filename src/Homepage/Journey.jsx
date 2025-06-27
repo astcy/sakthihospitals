@@ -35,7 +35,7 @@ const Journey = () => {
             style={{
               width: "100%",
               display: "flex",
-              flexWrap: "wrap",
+              flexDirection: window.innerWidth >= 1024 ? "row" : "column",
               justifyContent: "space-between",
               alignItems: "center",
               gap: "3rem",
@@ -48,8 +48,9 @@ const Journey = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               style={{
                 position: "relative",
-                flex: "1 1 500px",
+                flex: "1 1 50%",
                 maxWidth: "600px",
+                width: "100%",
               }}
             >
               <div
@@ -79,10 +80,10 @@ const Journey = () => {
                   alt="Decorative Icon"
                   style={{
                     position: "absolute",
-                    bottom: "-40px", // Increased to fully show below image
-                    right: "-40px",
-                    width: "250px",
-                    height: "auto",
+                    bottom: "-5px",
+                    right: "-10px",
+                    width: "280px",
+                    height: "300px",
                     objectFit: "contain",
                     zIndex: 10,
                   }}
@@ -96,10 +97,10 @@ const Journey = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               style={{
-                flex: "1 1 600px",
+                flex: "1 1 50%",
                 maxWidth: "600px",
                 textAlign: "left",
-                paddingTop: "2rem",
+                paddingTop: window.innerWidth < 1024 ? "2rem" : "0",
               }}
             >
               <h2

@@ -81,9 +81,9 @@ const Header = () => {
             style={{
               display: "flex",
               alignItems: "center",
-              gap: isTabletOrMobile ? "24px" : "40px", // ✅ Responsive spacing
+              gap: isTabletOrMobile ? "24px" : "50px", // ✅ Responsive spacing
               flexWrap: "wrap",
-              marginLeft: isTabletOrMobile ? "0px" : "-24px", // ✅ Moved slightly left
+              marginLeft: isTabletOrMobile ? "0px" : "-12px", // ✅ Moved slightly left
             }}
           >
             <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
@@ -104,7 +104,7 @@ const Header = () => {
                 style={{
                   display: "flex",
                   gap: "34px",
-                  fontSize: "10px",
+                  fontSize: "14px",
                   color: "#1a202c",
                   fontWeight: 500,
                 }}
