@@ -6,7 +6,15 @@ import overlayIcon from "../assets/overlayIcon.png";
 
 const Journey = () => {
   return (
-    <div style={{ width: "100%", background: "white", margin: 0, padding: 0 }}>
+    <div
+      style={{
+        width: "100%",
+        background: "white",
+        margin: 0,
+        padding: 0,
+        overflowX: "hidden",
+      }}
+    >
       <div
         style={{
           minHeight: "100vh",
@@ -15,7 +23,8 @@ const Journey = () => {
           maxWidth: "1400px",
           margin: "0 auto",
           marginTop: "-10px",
-          overflow: "visible", // ✅ ensures overlay image can be shown fully
+          position: "relative",
+          boxSizing: "border-box",
         }}
       >
         <SectionWrapper>
@@ -27,9 +36,9 @@ const Journey = () => {
               width: "100%",
               display: "flex",
               flexWrap: "wrap",
-              justifyContent: "center",
-              alignItems: "flex-start",
-              gap: "4rem",
+              justifyContent: "space-between",
+              alignItems: "center",
+              gap: "3rem",
             }}
           >
             {/* Left Image Section */}
@@ -41,14 +50,15 @@ const Journey = () => {
                 position: "relative",
                 flex: "1 1 500px",
                 maxWidth: "600px",
-                paddingBottom: "60px", // ✅ extra space for bottom overlay
               }}
             >
               <div
                 style={{
-                  position: "relative",
                   width: "100%",
                   height: "auto",
+                  position: "relative",
+                  borderRadius: "20px",
+                  overflow: "visible",
                 }}
               >
                 <img
@@ -56,50 +66,48 @@ const Journey = () => {
                   alt="Sakthi Hospital Journey"
                   style={{
                     width: "100%",
-                    height: "100%",
+                    height: "auto",
                     borderRadius: "20px",
                     objectFit: "cover",
                     display: "block",
                   }}
                 />
 
-                {/* Bottom-Right Overlay Image */}
+                {/* Overlay Icon */}
                 <img
                   src={overlayIcon}
                   alt="Decorative Icon"
                   style={{
                     position: "absolute",
-                    bottom: "-1px", // ✅ moved slightly down
-                    right: "-3px",
-                    width: "240px",
+                    bottom: "-40px", // Increased to fully show below image
+                    right: "-40px",
+                    width: "250px",
                     height: "auto",
                     objectFit: "contain",
-                    zIndex: 2,
+                    zIndex: 10,
                   }}
                 />
               </div>
             </motion.div>
 
-            {/* Right Text Section (unchanged) */}
+            {/* Right Text Section */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               style={{
                 flex: "1 1 600px",
-                maxWidth: "1000px",
+                maxWidth: "600px",
                 textAlign: "left",
-                paddingTop: "3rem",
+                paddingTop: "2rem",
               }}
             >
               <h2
                 style={{
                   fontSize: "3rem",
                   color: "#1e3a56",
-                  fontWeight: "500",
-                  marginTop: "2.5rem",
-                  marginBottom: "0.5rem",
-                  marginLeft: "4rem",
+                  fontWeight: "600",
+                  marginBottom: "1rem",
                   fontFamily: "Figtree, sans-serif",
                 }}
               >
@@ -111,9 +119,7 @@ const Journey = () => {
                   color: "#1687df",
                   fontWeight: "500",
                   fontSize: "1.5rem",
-                  marginTop: "0",
-                  marginBottom: "2.5rem",
-                  marginLeft: "4rem",
+                  marginBottom: "2rem",
                   lineHeight: "1.4",
                   fontFamily: "Figtree, sans-serif",
                 }}
@@ -128,11 +134,10 @@ const Journey = () => {
                   fontSize: "1.3rem",
                   color: "#a6b5c0",
                   fontWeight: "600",
-                  marginLeft: "6rem",
-                  marginBottom: "1rem",
                   display: "flex",
                   alignItems: "center",
                   gap: "0.6rem",
+                  marginBottom: "1rem",
                   fontFamily: "Figtree, sans-serif",
                 }}
               >
@@ -150,10 +155,9 @@ const Journey = () => {
 
               <p
                 style={{
-                  color: "#b5c1ca",
-                  marginLeft: "6rem",
+                  color: "#6b7280",
                   fontSize: "1rem",
-                  lineHeight: "1.4",
+                  lineHeight: "1.6",
                   maxWidth: "90%",
                   fontFamily: "Poppins, sans-serif",
                 }}

@@ -104,7 +104,7 @@ const Header = () => {
                 style={{
                   display: "flex",
                   gap: "34px",
-                  fontSize: "16px",
+                  fontSize: "10px",
                   color: "#1a202c",
                   fontWeight: 500,
                 }}
@@ -139,7 +139,7 @@ const Header = () => {
                 alignItems: "center",
                 gap: "20px",
                 color: "#1a202c",
-                paddingRight: "30px",
+                paddingRight: "90px",
               }}
             >
               <button
