@@ -168,10 +168,10 @@ const Sakthi = () => (
         align-items: center;
         flex-wrap: wrap;
         gap: 22px;
-        max-width: 1100px;
+        max-width: 1080px;
         position: relative;
         z-index: 5;
-        margin-top: 1.1rem;
+        margin-top: 1.rem;
       }
 
       .sakthi-booking-item {
