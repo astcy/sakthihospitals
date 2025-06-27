@@ -47,7 +47,7 @@ const Header = () => {
     <>
       <header
         style={{
-          width: "100vw",
+          width: "100%", // ✅ Changed from 100vw
           backgroundColor: "#b9d9f4",
           backgroundRepeat: "repeat-x",
           backgroundPosition: "bottom",
@@ -67,18 +67,34 @@ const Header = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
+            flexWrap: "wrap", // ✅ Allow wrapping
             height: "70px",
             padding: isTabletOrMobile ? "0 12px" : "0 24px",
             width: "100%",
+            maxWidth: "1280px", // ✅ Prevent full-width stretch
+            margin: "0 auto", // ✅ Center the container
+            boxSizing: "border-box",
           }}
         >
           {/* Logo + Name */}
-          <div style={{ display: "flex", alignItems: "center", gap: "77px" }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: isTabletOrMobile ? "24px" : "40px", // ✅ Responsive spacing
+              flexWrap: "wrap",
+              marginLeft: isTabletOrMobile ? "0px" : "-24px", // ✅ Moved slightly left
+            }}
+          >
             <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
               <img
                 src={logo}
                 alt="Hospital logo"
-                style={{ width: "250px", height: "50px", objectFit: "contain" }}
+                style={{
+                  width: isTabletOrMobile ? "160px" : "220px", // ✅ Responsive
+                  height: "50px",
+                  objectFit: "contain",
+                }}
               />
             </div>
 
@@ -123,7 +139,7 @@ const Header = () => {
                 alignItems: "center",
                 gap: "20px",
                 color: "#1a202c",
-                paddingRight: "60px",
+                paddingRight: "30px",
               }}
             >
               <button

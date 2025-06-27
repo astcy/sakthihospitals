@@ -23,7 +23,7 @@ const Emergency = () => {
       style={{
         fontFamily: "'Poppins', sans-serif",
         backgroundColor: "#fff",
-        padding: "30px 0", // ✅ Reduced vertical space
+        padding: "30px 0",
         display: "flex",
         justifyContent: "center",
       }}
@@ -35,7 +35,6 @@ const Emergency = () => {
           margin: "0 20px",
         }}
       >
-        {/* Left to right gradient background */}
         <div
           style={{
             background: "linear-gradient(to right, #a3cbf3 0%, #cee7f1 100%)",
@@ -68,7 +67,7 @@ const Emergency = () => {
               transform: "translateX(-50%)",
               bottom: "-60px",
               width: "100%",
-              maxWidth: "1100px",
+              maxWidth: "1180px", // ✅ increased from 1100px to 1180px
               padding: "0 20px",
             }}
           >

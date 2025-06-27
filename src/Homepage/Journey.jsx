@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import SectionWrapper from "../components/SectionWrapper";
 import journey from "../assets/journey.png";
-import overlayIcon from "../assets/overlayIcon.png"; // ✅ Add your image here
+import overlayIcon from "../assets/overlayIcon.png";
 
 const Journey = () => {
   return (
@@ -14,7 +14,8 @@ const Journey = () => {
           fontFamily: "Poppins, sans-serif",
           maxWidth: "1400px",
           margin: "0 auto",
-           marginTop: "-10px",
+          marginTop: "-10px",
+          overflow: "visible", // ✅ ensures overlay image can be shown fully
         }}
       >
         <SectionWrapper>
@@ -40,9 +41,16 @@ const Journey = () => {
                 position: "relative",
                 flex: "1 1 500px",
                 maxWidth: "600px",
+                paddingBottom: "60px", // ✅ extra space for bottom overlay
               }}
             >
-              <div style={{ position: "relative", width: "110%", maxHeight: "520px" }}>
+              <div
+                style={{
+                  position: "relative",
+                  width: "100%",
+                  height: "auto",
+                }}
+              >
                 <img
                   src={journey}
                   alt="Sakthi Hospital Journey"
@@ -51,6 +59,7 @@ const Journey = () => {
                     height: "100%",
                     borderRadius: "20px",
                     objectFit: "cover",
+                    display: "block",
                   }}
                 />
 
@@ -60,10 +69,10 @@ const Journey = () => {
                   alt="Decorative Icon"
                   style={{
                     position: "absolute",
-                    bottom: "-10px",
+                    bottom: "-1px", // ✅ moved slightly down
                     right: "-3px",
-                    width: "274px",
-                    height: "300px",
+                    width: "240px",
+                    height: "auto",
                     objectFit: "contain",
                     zIndex: 2,
                   }}
@@ -71,7 +80,7 @@ const Journey = () => {
               </div>
             </motion.div>
 
-            {/* Right Text Section */}
+            {/* Right Text Section (unchanged) */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -146,6 +155,7 @@ const Journey = () => {
                   fontSize: "1rem",
                   lineHeight: "1.4",
                   maxWidth: "90%",
+                  fontFamily: "Poppins, sans-serif",
                 }}
               >
                 Sakthi hospital was started in the year 1985 in Mannady, as a

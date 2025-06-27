@@ -7,20 +7,23 @@ const Sakthi = () => (
   <>
     <style>{`
       @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@700;800&family=Poppins:wght@300;400;500;600&display=swap');
+      
       body, html, #root {
         font-family: 'Poppins', Arial, sans-serif;
         background: #b9d9f4;
         overflow-x: hidden;
       }
+
       .sakthi-container {
         width: 100%;
-background: linear-gradient(to bottom, #b9d9f4 82%, #ffffff);
+        background: linear-gradient(to bottom, #b9d9f4 82%, #ffffff);
         min-height: 100vh;
         padding: 0 2.5rem;
         box-sizing: border-box;
         overflow: visible;
         position: relative;
       }
+
       .sakthi-hero {
         width: 100%;
         max-width: 1300px;
@@ -29,13 +32,14 @@ background: linear-gradient(to bottom, #b9d9f4 82%, #ffffff);
         flex-direction: row;
         align-items: flex-start;
         justify-content: space-between;
-        padding: 5rem 4rem 0 4rem;
-        gap: 0.5rem;
+        padding: 6rem 4rem 0 4rem;
+        gap: 2rem;
         box-sizing: border-box;
         flex-wrap: wrap;
         overflow: visible;
         position: relative;
       }
+
       .sakthi-left {
         flex: 1 1 400px;
         max-width: 520px;
@@ -46,6 +50,7 @@ background: linear-gradient(to bottom, #b9d9f4 82%, #ffffff);
         justify-content: flex-start;
         padding-bottom: 0;
       }
+
       .sakthi-headline {
         font-family: 'Figtree', Arial, sans-serif;
         font-size: 3.8rem;
@@ -57,6 +62,7 @@ background: linear-gradient(to bottom, #b9d9f4 82%, #ffffff);
         line-height: 1.2;
         letter-spacing: 3px;
       }
+
       .sakthi-desc {
         font-family: 'Poppins', Arial, sans-serif;
         font-size: 0.95rem;
@@ -66,6 +72,7 @@ background: linear-gradient(to bottom, #b9d9f4 82%, #ffffff);
         margin-left: 0.5rem;
         max-width: 460px;
       }
+
       .sakthi-play-row {
         display: flex;
         align-items: center;
@@ -77,6 +84,7 @@ background: linear-gradient(to bottom, #b9d9f4 82%, #ffffff);
         font-family: 'Poppins', Arial, sans-serif;
         font-weight: 500;
       }
+
       .sakthi-play-btn {
         width: 32px;
         height: 32px;
@@ -91,9 +99,11 @@ background: linear-gradient(to bottom, #b9d9f4 82%, #ffffff);
         flex-shrink: 0;
         padding: 0;
       }
+
       .sakthi-play-btn svg {
         display: block;
       }
+
       .sakthi-right {
         flex: 1.1 1 600px;
         min-width: 350px;
@@ -104,39 +114,34 @@ background: linear-gradient(to bottom, #b9d9f4 82%, #ffffff);
         position: relative;
         overflow: visible;
       }
-     .sakthi-image-card {
-  width: 100%;
-  max-width: 1000x;
-  height: 640px;
-  min-height: 460px;
-  border-radius: 0;
-  overflow: visible;
-  background: #fff;
-  box-shadow: none;
-  position: relative;
-    aspect-ratio: 16 / 9; /* or another suitable ratio */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: -4.2rem;
-  z-index: 1;
-  background: transparent; /* remove white bg */
-  border-radius: 0;     
-    border: none !important;
-  
-}
-.sakthi-img-main {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
-  border-radius: 10px;
-  display: block;
-    background: transparent;
-    
 
-  z-index: 1;
-}
+      .sakthi-image-card {
+        width: 100%;
+        max-width: 1000px;
+        height: 640px;
+        min-height: 460px;
+        background: transparent;
+        position: relative;
+        aspect-ratio: 16 / 9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: -4.2rem;
+        z-index: 1;
+        border: none !important;
+      }
+
+      .sakthi-img-main {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+        border-radius: 10px;
+        display: block;
+        background: transparent;
+        z-index: 1;
+      }
+
       .sakthi-img-overlay {
         position: absolute;
         top: -40px;
@@ -166,8 +171,9 @@ background: linear-gradient(to bottom, #b9d9f4 82%, #ffffff);
         max-width: 1200px;
         position: relative;
         z-index: 5;
-          margin-top: 1.3rem; /* Adjust this value as needed */
+        margin-top: 1.3rem;
       }
+
       .sakthi-booking-item {
         display: flex;
         align-items: center;
@@ -175,6 +181,7 @@ background: linear-gradient(to bottom, #b9d9f4 82%, #ffffff);
         min-width: 180px;
         flex: 1 1 180px;
       }
+
       .sakthi-booking-icon {
         background: #307bc4;
         width: 48px;
@@ -184,18 +191,21 @@ background: linear-gradient(to bottom, #b9d9f4 82%, #ffffff);
         justify-content: center;
         align-items: center;
       }
+
       .sakthi-booking-label {
         font-size: 0.95rem;
         font-weight: 700;
         color: #1f3a57;
         font-family: 'Poppins', Arial, sans-serif;
       }
+
       .sakthi-booking-value {
         font-size: 1rem;
         font-weight: 400;
         color: #6b7280;
         font-family: 'Poppins', Arial, sans-serif;
       }
+
       .sakthi-book-btn {
         background: #284c69;
         border: none;
@@ -214,18 +224,20 @@ background: linear-gradient(to bottom, #b9d9f4 82%, #ffffff);
         transition: background 0.3s ease;
         font-family: 'Poppins', Arial, sans-serif;
       }
+
       .sakthi-book-btn:hover {
         background: #295275;
       }
+
       @media (max-width: 1200px) {
         .sakthi-container {
           padding: 0 1.2rem;
         }
         .sakthi-hero {
           flex-direction: column;
-          gap: 1.3rem;
+          gap: 2rem;
           align-items: center;
-          padding: 2rem 0 0 0;
+          padding: 4rem 0 0 0;
         }
         .sakthi-image-card {
           max-width: 99vw;
@@ -238,6 +250,7 @@ background: linear-gradient(to bottom, #b9d9f4 82%, #ffffff);
           gap: 1.1rem;
         }
       }
+
       @media (max-width: 600px) {
         .sakthi-headline {
           font-size: 2rem !important;

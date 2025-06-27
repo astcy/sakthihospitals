@@ -43,211 +43,176 @@ const doctors = [
   },
 ];
 
-const containerStyle = {
-  background: "#fff",
-  padding: "60px 20px",
-  textAlign: "center",
-  fontFamily: "'Segoe UI', sans-serif",
-  minHeight: "100vh",
-  marginBottom: "10px",
-};
-
-const subtitleStyle = {
-  fontFamily: "'Figtree', sans-serif",
-  fontSize: 16,
-  fontWeight: 600,
-  color: "#307bc4",
-  textTransform: "uppercase",
-  marginTop: 20,
-  marginBottom: 4,
-  letterSpacing: "1px",
-};
-
-const titleStyle = {
-  fontFamily: "'Figtree', sans-serif",
-  fontSize: 44,
-  fontWeight: 700,
-  color: "#1e293b",
-  marginTop: 0,
-  marginBottom: 50,
-};
-
-const gridStyle = {
-  display: "flex",
-  flexWrap: "wrap",
-  justifyContent: "center",
-  gap: "36px",
-};
-
-const cardWidth = 375;
-
-const cardBaseStyle = {
-  width: cardWidth,
-  minHeight: 480,
-  background: "transparent",
-  borderRadius: "18px",
-  boxShadow: "none",
-  padding: 0,
-  textAlign: "center",
-  transition: "all 0.18s cubic-bezier(.4,1.2,.6,1)",
-  cursor: "pointer",
-  position: "relative",
-  zIndex: 1,
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "flex-start",
-  overflow: "visible",
-};
-
-const cardHoverStyle = {
-  background: "#fff",
-  boxShadow: "0 4px 16px 0 rgba(28,56,90,0.07)",
-  borderRadius: "18px",
-  padding: "0 0 24px 0",
-  transform: "scale(1.01)",
-  zIndex: 2,
-};
-
-const imgContainerBase = {
-  width: "100%",
-  height: "260px",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  borderRadius: "14px 14px 0 0",
-  background: "transparent",
-  transition: "background 0.35s",
-};
-
-const imgContainerHover = {
-  background: "#e8f4fd",
-};
-
-const imgStyle = {
-  maxWidth: "92%",
-  maxHeight: "92%",
-  objectFit: "contain",
-  display: "block",
-  borderRadius: "12px",
-  background: "transparent",
-  transition: "box-shadow 0.25s",
-};
-
-const nameStyle = {
-  fontSize: "28px",
-  fontWeight: 700,
-  color: "#1e293b",
-  margin: "10px 0 6px 0",
-  fontFamily: "'Figtree', sans-serif",
-};
-
-const titleTextStyle = {
-  fontSize: "14px",
-  color: "#334155",
-  margin: "0 0 12px 0",
-  fontWeight: 500,
-  fontFamily: "'Poppins', sans-serif",
-};
-
-const descStyle = {
-  fontFamily: "'Poppins', sans-serif",
-  fontSize: "14px",
-  color: "#64748b",
-  lineHeight: 1.6,
-  margin: "0 0 10px 0",
-};
-
-const socialStyle = {
-  fontFamily: "'Poppins', sans-serif",
-  display: "flex",
-  justifyContent: "center",
-  gap: "16px",
-  marginTop: "16px",
-  fontSize: "20px",
-  color: "#2563eb",
-  opacity: 0,
-  pointerEvents: "none",
-  transition: "opacity 0.25s",
-};
-
-const socialVisible = {
-  opacity: 1,
-  pointerEvents: "auto",
-};
-
-const iconLinkStyle = {
-  color: "#2563eb",
-  textDecoration: "none",
-  transition: "color 0.2s, background 0.2s",
-  background: "#e8f4fd",
-  padding: "8px",
-  borderRadius: "50%",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  width: "38px",
-  height: "38px",
-};
-
-const iconLinkHoverStyle = {
-  color: "#fff",
-  background: "#2563eb",
-};
-
 const Meet = () => {
   const [hovered, setHovered] = useState(null);
 
   return (
-    <section style={containerStyle}>
+    <section
+      style={{
+        background: "#fff",
+        padding: "60px 20px",
+        textAlign: "center",
+        fontFamily: "'Segoe UI', sans-serif",
+        minHeight: "100vh",
+        boxSizing: "border-box",
+        maxWidth: "1300px",
+        margin: "0 auto", // Ensure center alignment on all devices
+      }}
+    >
       <div style={{ marginBottom: 60 }}>
-        <h4 style={subtitleStyle}>MEET OUR</h4>
-        <h2 style={titleStyle}>Experts Doctor</h2>
+        <h4
+          style={{
+            fontFamily: "'Figtree', sans-serif",
+            fontSize: 16,
+            fontWeight: 600,
+            color: "#307bc4",
+            textTransform: "uppercase",
+            margin: 0,
+            letterSpacing: "1px",
+          }}
+        >
+          MEET OUR
+        </h4>
+        <h2
+          style={{
+            fontFamily: "'Figtree', sans-serif",
+            fontSize: 44,
+            fontWeight: 700,
+            color: "#1e293b",
+            margin: "10px 0 50px 0",
+          }}
+        >
+          Experts Doctor
+        </h2>
       </div>
-      <div style={gridStyle}>
+
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          gap: "36px",
+        }}
+      >
         {doctors.map((doc, index) => {
           const isHovered = hovered === index;
+
           return (
             <div
               key={index}
-              style={{
-                ...cardBaseStyle,
-                ...(isHovered ? cardHoverStyle : {}),
-              }}
               onMouseEnter={() => setHovered(index)}
               onMouseLeave={() => setHovered(null)}
+              style={{
+                width: 375,
+                minHeight: 500,
+                borderRadius: 18,
+                boxShadow: isHovered
+                  ? "0 4px 16px 0 rgba(28,56,90,0.07)"
+                  : "none",
+                background: isHovered ? "#fff" : "transparent",
+                paddingBottom: 24,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                textAlign: "center",
+                position: "relative",
+                transition: "all 0.18s ease-in-out",
+              }}
             >
               <div
                 style={{
-                  ...imgContainerBase,
-                  ...(isHovered ? imgContainerHover : {}),
+                  width: "100%",
+                  height: 260,
+                  borderRadius: "14px 14px 0 0",
+                  background: isHovered ? "#e8f4fd" : "transparent",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  overflow: "hidden",
+                  boxSizing: "border-box",
                 }}
               >
-                <img src={doc.img} alt={doc.name} style={imgStyle} />
+                <img
+                  src={doc.img}
+                  alt={doc.name}
+                  style={{
+                    width: "92%",
+                    height: "100%",
+                    objectFit: "contain",
+                    objectPosition: "center",
+                    borderRadius: 12,
+                    display: "block",
+                  }}
+                />
               </div>
-              <h3 style={nameStyle}>{doc.name}</h3>
-              <p style={titleTextStyle}>{doc.title}</p>
-              <p style={descStyle}>{doc.desc}</p>
+              <h3
+                style={{
+                  fontSize: 24,
+                  fontWeight: 700,
+                  color: "#1e293b",
+                  margin: "10px 0 6px",
+                  fontFamily: "'Figtree', sans-serif",
+                }}
+              >
+                {doc.name}
+              </h3>
+              <p
+                style={{
+                  fontSize: 14,
+                  color: "#334155",
+                  margin: "0 0 12px",
+                  fontWeight: 500,
+                  fontFamily: "'Poppins', sans-serif",
+                }}
+              >
+                {doc.title}
+              </p>
+              <p
+                style={{
+                  fontSize: 14,
+                  color: "#64748b",
+                  lineHeight: 1.6,
+                  fontFamily: "'Poppins', sans-serif",
+                  margin: "0 0 10px",
+                }}
+              >
+                {doc.desc}
+              </p>
               <div
                 style={{
-                  ...socialStyle,
-                  ...(isHovered ? socialVisible : {}),
+                  display: "flex",
+                  gap: 16,
+                  justifyContent: "center",
+                  opacity: isHovered ? 1 : 0,
+                  pointerEvents: isHovered ? "auto" : "none",
+                  transition: "opacity 0.25s ease-in-out",
                 }}
               >
                 {doc.social.map((item, i) => (
                   <a
                     key={i}
                     href={item.url}
-                    style={iconLinkStyle}
-                    onMouseEnter={e => {
-                      e.currentTarget.style.color = iconLinkHoverStyle.color;
-                      e.currentTarget.style.background = iconLinkHoverStyle.background;
+                    style={{
+                      background: "#e8f4fd",
+                      color: "#2563eb",
+                      width: 38,
+                      height: 38,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      borderRadius: "50%",
+                      transition: "0.3s",
+                      textDecoration: "none",
                     }}
-                    onMouseLeave={e => {
-                      e.currentTarget.style.color = iconLinkStyle.color;
-                      e.currentTarget.style.background = iconLinkStyle.background;
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = "#2563eb";
+                      e.currentTarget.style.color = "#fff";
                     }}
-                    aria-label="Social link"
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = "#e8f4fd";
+                      e.currentTarget.style.color = "#2563eb";
+                    }}
+                    aria-label="Social profile"
                   >
                     {item.icon}
                   </a>
