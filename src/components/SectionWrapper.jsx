@@ -8,8 +8,9 @@ const SectionWrapper = ({ children, style = {} }) => {
         width: "100%",
         maxWidth: "1400px",
         margin: "0 auto",
-        padding: "4rem 1rem",
+        padding: "4rem 2rem", // Slightly more horizontal padding for breathing room
         boxSizing: "border-box",
+        overflowX: "hidden", // prevent overflow caused by translateX
         ...style,
       }}
     >

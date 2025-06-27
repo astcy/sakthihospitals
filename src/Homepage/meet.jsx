@@ -50,15 +50,12 @@ const Meet = () => {
     <section
       style={{
         background: "#fff",
-        padding: "60px 40px", // Increased side margin
+        padding: "60px 40px",
         textAlign: "center",
         fontFamily: "'Segoe UI', sans-serif",
-        minHeight: "100vh",
-        boxSizing: "border-box",
         maxWidth: "1300px",
         width: "100%",
         margin: "0 auto",
-        overflowX: "hidden",
       }}
     >
       <div style={{ marginBottom: 60 }}>
@@ -93,7 +90,7 @@ const Meet = () => {
           display: "flex",
           flexWrap: "wrap",
           justifyContent: "center",
-          gap: "36px",
+          gap: "46px",
         }}
       >
         {doctors.map((doc, index) => {
@@ -106,7 +103,7 @@ const Meet = () => {
               onMouseLeave={() => setHovered(null)}
               style={{
                 width: "100%",
-                maxWidth: 320, // Reduced card width
+                maxWidth: 320,
                 minHeight: 520,
                 borderRadius: 18,
                 boxShadow: isHovered
@@ -119,19 +116,22 @@ const Meet = () => {
                 alignItems: "center",
                 textAlign: "center",
                 position: "relative",
-                transition: "all 0.18s ease-in-out",
+                transition: "all 0.25s ease-in-out",
               }}
             >
+              {/* Image Section */}
               <div
                 style={{
                   width: "100%",
                   height: 260,
                   borderRadius: "14px 14px 0 0",
-                  background: isHovered ? "#e8f4fd" : "transparent",
+                  background:
+                    !isHovered && index !== 2 ? "#e8f4fd" : "#e8f4fd",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   overflow: "hidden",
+                  transition: "background 0.3s ease",
                 }}
               >
                 <img
@@ -147,6 +147,8 @@ const Meet = () => {
                   }}
                 />
               </div>
+
+              {/* Name */}
               <h3
                 style={{
                   fontSize: 22,
@@ -158,6 +160,8 @@ const Meet = () => {
               >
                 {doc.name}
               </h3>
+
+              {/* Title */}
               <p
                 style={{
                   fontSize: 13,
@@ -169,6 +173,8 @@ const Meet = () => {
               >
                 {doc.title}
               </p>
+
+              {/* Description */}
               <p
                 style={{
                   fontSize: 13,
@@ -176,10 +182,17 @@ const Meet = () => {
                   lineHeight: 1.6,
                   fontFamily: "'Poppins', sans-serif",
                   margin: "0 0 10px",
+                  padding: "0 8px",
+                  overflow: "hidden",
+                  display: "-webkit-box",
+                  WebkitBoxOrient: "vertical",
+                  WebkitLineClamp: index === 0 && !isHovered ? 3 : "unset",
                 }}
               >
                 {doc.desc}
               </p>
+
+              {/* Social Icons */}
               <div
                 style={{
                   display: "flex",

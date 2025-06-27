@@ -31,7 +31,7 @@ const Emergency = () => {
       <div
         style={{
           width: "100%",
-          maxWidth: "1100px",
+          maxWidth: "1080px", // slightly reduced from 1100px
           margin: "0 20px",
         }}
       >
@@ -67,7 +67,7 @@ const Emergency = () => {
               transform: "translateX(-50%)",
               bottom: "-60px",
               width: "100%",
-              maxWidth: "1180px",
+              maxWidth: "1160px", // slightly reduced from 1180px
               padding: "0 20px",
             }}
           >
@@ -89,7 +89,9 @@ const Emergency = () => {
                     boxShadow: isHovered
                       ? "0 12px 24px rgba(0, 0, 0, 0.2)"
                       : "0 4px 12px rgba(0, 0, 0, 0.08)",
-                    transform: isHovered ? "translateY(-6px) scale(1.04)" : "none",
+                    transform: isHovered
+                      ? "translateY(-6px) scale(1.04)"
+                      : "none",
                     transition: "all 0.3s ease",
                     cursor: "pointer",
                   }}
@@ -128,8 +130,8 @@ const Emergency = () => {
           {`
             .dept-card {
               flex: 1 1 calc(14% - 20px);
-              max-width: 160px;
-              min-width: 140px;
+              max-width: 155px; /* slightly reduced from 160px */
+              min-width: 135px; /* slightly reduced from 140px */
             }
 
             @media (max-width: 1024px) {
