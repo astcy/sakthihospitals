@@ -67,7 +67,7 @@ const Emergency = () => {
               transform: "translateX(-50%)",
               bottom: "-60px",
               width: "100%",
-              maxWidth: "1180px", // ✅ increased from 1100px to 1180px
+              maxWidth: "1180px",
               padding: "0 20px",
             }}
           >
@@ -77,12 +77,10 @@ const Emergency = () => {
               return (
                 <div
                   key={index}
+                  className="dept-card"
                   onMouseEnter={() => setHoverIndex(index)}
                   onMouseLeave={() => setHoverIndex(null)}
                   style={{
-                    flex: "1 1 calc(16.66% - 20px)",
-                    minWidth: "160px",
-                    maxWidth: "180px",
                     background: isHovered ? "#307bc4" : "#ffffff",
                     color: isHovered ? "#ffffff" : "#000000",
                     textAlign: "center",
@@ -125,12 +123,31 @@ const Emergency = () => {
         {/* Space for cards to float below gradient container */}
         <div style={{ height: "120px" }}></div>
 
-        {/* Responsive: 2 items per row on small screens */}
+        {/* Responsive styling using CSS class */}
         <style>
           {`
+            .dept-card {
+              flex: 1 1 calc(14% - 20px);
+              max-width: 160px;
+              min-width: 140px;
+            }
+
+            @media (max-width: 1024px) {
+              .dept-card {
+                flex: 1 1 calc(33.33% - 20px);
+                max-width: none;
+              }
+            }
+
             @media (max-width: 768px) {
-              div[style*="flex: 1 1 calc(16.66%"] {
-                flex: 1 1 calc(50% - 20px) !important;
+              .dept-card {
+                flex: 1 1 calc(50% - 20px);
+              }
+            }
+
+            @media (max-width: 480px) {
+              .dept-card {
+                flex: 1 1 100%;
               }
             }
           `}

@@ -168,7 +168,7 @@ const Sakthi = () => (
         align-items: center;
         flex-wrap: wrap;
         gap: 22px;
-        max-width: 1150px;
+        max-width: 1100px;
         position: relative;
         z-index: 5;
         margin-top: 1.1rem;
