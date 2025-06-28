@@ -45,7 +45,7 @@ const CertificateLogoCard = ({ label, src, alt, width }) => (
         src={src}
         alt={alt}
         style={{
-          width: "110px",
+          width: "120px",
           height: "95px",
           objectFit: "contain",
           marginBottom: "20px",
