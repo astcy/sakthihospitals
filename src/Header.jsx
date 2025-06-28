@@ -103,8 +103,8 @@ const Header = () => {
               <nav
                 style={{
                   display: "flex",
-                  gap: "34px",
-                  fontSize: "14px",
+                  gap: "25px",
+                  fontSize: "12px",
                   color: "#1a202c",
                   fontWeight: 500,
                 }}

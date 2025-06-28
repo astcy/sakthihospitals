@@ -33,6 +33,8 @@ const Journey = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             style={{
+                  marginLeft: "-10px",               // Move entire section 40px left
+
               width: "100%",
               display: "flex",
               flexDirection: window.innerWidth >= 1024 ? "row" : "column",

@@ -8,7 +8,8 @@ import Emergency from "./Emergency";
 import Certificate from "./Certificate";
 import Patient from "./Patient";
 import Backtest from "./Backseat";
-
+import Appointment from "./Appointment";
+import Post from "./Post";
 const globalStyle = `
   * {
     box-sizing: border-box;
@@ -62,7 +63,8 @@ const Home = () => {
       < Certificate/>
             < Patient/>
                         <Backtest/>
-
+                        <Post/>
+<Appointment />
 
     </section>
   );
