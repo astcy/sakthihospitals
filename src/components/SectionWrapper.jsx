@@ -1,16 +1,22 @@
 // src/components/SectionWrapper.jsx
 import React from "react";
 
-const SectionWrapper = ({ children, style = {} }) => {
+const SectionWrapper = ({
+  children,
+  style = {},
+  maxWidth = "1200px", // customizable max width
+  padding = "4rem 1.5rem", // adjustable default padding
+  center = false, // optional horizontal center alignment
+}) => {
   return (
     <div
       style={{
         width: "100%",
-        maxWidth: "1400px",
-        margin: "0 auto",
-        padding: "4rem 2rem", // Slightly more horizontal padding for breathing room
+        maxWidth: maxWidth,
+        margin: center ? "0 auto" : "initial", // center content if true
+        padding: padding,
         boxSizing: "border-box",
-        overflowX: "hidden", // prevent overflow caused by translateX
+        overflowX: "hidden",
         ...style,
       }}
     >

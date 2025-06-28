@@ -12,8 +12,8 @@ const Backtest = () => {
         alignItems: "center",
         justifyContent: "space-between",
         flexWrap: "wrap",
-        maxWidth: "1120px",
-        margin: "100px auto",
+        maxWidth: "1100px",
+        margin: "80px auto",
       }}
     >
       {/* Left Text Section */}

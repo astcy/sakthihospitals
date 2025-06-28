@@ -160,6 +160,7 @@ const Journey = () => {
                   fontSize: "1rem",
                   lineHeight: "1.6",
                   maxWidth: "90%",
+                                      fontSize: "1rem",
                   fontFamily: "Poppins, sans-serif",
                 }}
               >
