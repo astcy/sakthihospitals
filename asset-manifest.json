@@ -1,12 +1,17 @@
 {
   "files": {
-    "main.js": "/sakthihospitals/static/js/main.436758f7.js",
+    "main.js": "/sakthihospitals/static/js/main.fdc2323e.js",
     "static/media/first.png": "/sakthihospitals/static/media/first.afdebd6721ef464c6aab.png",
     "static/media/doctor.png": "/sakthihospitals/static/media/doctor.959708317b7bce58c3d0.png",
     "static/media/journey.png": "/sakthihospitals/static/media/journey.245ed6eb638061270fa3.png",
+    "static/media/bgpattern.png": "/sakthihospitals/static/media/bgpattern.262a51d7b338edfe9856.png",
+    "static/media/glow.png": "/sakthihospitals/static/media/glow.e02efcf02fc38d2b3054.png",
+    "static/media/post3.png": "/sakthihospitals/static/media/post3.73ccb92984783bd08c9d.png",
+    "static/media/post2.png": "/sakthihospitals/static/media/post2.a3ef233396453630e7d4.png",
     "static/media/Doctor3.png": "/sakthihospitals/static/media/Doctor3.203ab7eef2f02063c052.png",
     "static/media/Doctor3 .png": "/sakthihospitals/static/media/Doctor3 .93f720c9a118d0632482.png",
     "static/media/Doctor2.png": "/sakthihospitals/static/media/Doctor2.02c99ea3512575e07dae.png",
+    "static/media/post1.png": "/sakthihospitals/static/media/post1.9bfa65afce5a93edeefd.png",
     "static/media/Elements.png": "/sakthihospitals/static/media/Elements.d85fd6e36a3a61990ae5.png",
     "static/media/logo2.png": "/sakthihospitals/static/media/logo2.9c1aef03197c0aa4f7be.png",
     "static/media/overlayIcon.png": "/sakthihospitals/static/media/overlayIcon.85f9b17ecdc071f0a714.png",
@@ -14,9 +19,9 @@
     "static/media/logo1.png": "/sakthihospitals/static/media/logo1.cb9d37cb02a684b246de.png",
     "static/media/logo (2).png": "/sakthihospitals/static/media/logo (2).ef4ab8ba2e4b793ba989.png",
     "index.html": "/sakthihospitals/index.html",
-    "main.436758f7.js.map": "/sakthihospitals/static/js/main.436758f7.js.map"
+    "main.fdc2323e.js.map": "/sakthihospitals/static/js/main.fdc2323e.js.map"
   },
   "entrypoints": [
-    "static/js/main.436758f7.js"
+    "static/js/main.fdc2323e.js"
   ]
 }
