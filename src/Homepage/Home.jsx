@@ -10,6 +10,7 @@ import Patient from "./Patient";
 import Backtest from "./Backseat";
 import Appointment from "./Appointment";
 import Post from "./Post";
+import Asked from "./Asked";
 const globalStyle = `
   * {
     box-sizing: border-box;
@@ -65,7 +66,7 @@ const Home = () => {
                         <Backtest/>
                         <Post/>
 <Appointment />
-
+<Asked />
     </section>
   );
 };
