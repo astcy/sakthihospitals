@@ -12,7 +12,7 @@ const Backtest = () => {
         alignItems: "center",
         justifyContent: "space-between",
         flexWrap: "wrap",
-        maxWidth: "1160px",
+        maxWidth: "1120px",
         margin: "100px auto",
       }}
     >

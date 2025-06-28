@@ -48,7 +48,7 @@ const Patient = () => {
       <div
         style={{
           width: "100%",
-          maxWidth: "1180px",
+          maxWidth: "1140px",
           margin: "0 auto",
           transform: "translateX(10px)",
         }}

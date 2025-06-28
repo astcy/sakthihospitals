@@ -148,7 +148,7 @@ const Certificate = () => {
         maxWidth: "1300px",
         width: "100%",
         margin: "0 auto",
-        marginLeft: "120px",
+        marginLeft: "90px",
       }}
     >
       <h2
@@ -167,7 +167,7 @@ const Certificate = () => {
         style={{
           display: "flex",
           flexWrap: "wrap",
-          gap: "48px",
+          gap: "28px",
           justifyContent: "flex-start",
         }}
       >
