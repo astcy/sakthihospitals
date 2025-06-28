@@ -5,6 +5,9 @@ import Sakthi from "./Sakthi";
 import Journey from "./Journey";
 import Meet from "./meet";
 import Emergency from "./Emergency";
+import Certificate from "./Certificate";
+import Patient from "./Patient";
+import Backtest from "./Backseat";
 
 const globalStyle = `
   * {
@@ -56,6 +59,11 @@ const Home = () => {
       <Journey />
       <Meet />
       <Emergency />
+      < Certificate/>
+            < Patient/>
+                        <Backtest/>
+
+
     </section>
   );
 };
