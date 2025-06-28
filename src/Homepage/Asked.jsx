@@ -35,11 +35,9 @@ function Asked() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Font family helpers
   const poppins = "'Poppins', sans-serif";
   const figtree = "'Figtree', sans-serif";
 
-  // Styles
   const styles = {
     main: {
       minHeight: "100vh",
@@ -51,7 +49,7 @@ function Asked() {
       fontFamily: poppins,
     },
     title: {
-      color: "#2563eb",
+      color: "#7dacda",
       fontWeight: 700,
       fontSize: isMobile ? "13px" : "16px",
       letterSpacing: "1px",
@@ -63,7 +61,7 @@ function Asked() {
     },
     subtitle: {
       color: "#0f172a",
-      fontWeight: 800,
+      fontWeight: 400,
       fontSize: isMobile ? "26px" : "48px",
       marginBottom: isMobile ? "22px" : "40px",
       textAlign: "center",
@@ -95,7 +93,6 @@ function Asked() {
     faqBoxActive: {
       background: "#e8f4fb",
       boxShadow: "0 8px 32px #bae6fd66, 0 0 0 1px #bae6fd",
-      // Open box moves slightly right
       marginLeft: isMobile ? "4px" : "24px",
       width: isMobile ? "calc(100% - 8px)" : "calc(100% - 48px)",
     },
@@ -106,7 +103,7 @@ function Asked() {
     },
     question: {
       color: "#1e293b",
-      fontWeight: 700,
+      fontWeight: 500, // Reduced from 700
       fontSize: isMobile ? "15px" : "18px",
       margin: 0,
       flex: 1,
@@ -134,7 +131,7 @@ function Asked() {
       marginTop: isMobile ? "8px" : "13px",
       color: "#334155",
       fontSize: isMobile ? "13px" : "15px",
-      fontWeight: 400,
+      fontWeight: 300, // Reduced from 400
       fontFamily: poppins,
       lineHeight: 1.6,
       userSelect: "none",
