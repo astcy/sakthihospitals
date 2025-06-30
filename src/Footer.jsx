@@ -33,7 +33,7 @@ const Footer = () => {
     gap: isMobile ? '30px' : '0',
     position: 'relative',
     zIndex: 2,
-    marginLeft:'240px',
+    marginLeft:'160px',
   };
 
   const subscribeLeftStyles = {
