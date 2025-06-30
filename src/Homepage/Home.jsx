@@ -11,6 +11,7 @@ import Backtest from "./Backseat";
 import Appointment from "./Appointment";
 import Post from "./Post";
 import Asked from "./Asked";
+import Footer from "../Footer";
 const globalStyle = `
   * {
     box-sizing: border-box;
@@ -67,6 +68,7 @@ const Home = () => {
                         <Post/>
 <Appointment />
 <Asked />
+<Footer/>
     </section>
   );
 };
