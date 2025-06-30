@@ -130,7 +130,7 @@ const Footer = () => {
     margin: '0 auto',
     display: 'grid',
     gridTemplateColumns: isMobile ? '1fr' : '1.3fr 1fr 1fr 1fr',
-    gap: isMobile ? '32px' : '12rem',
+  gap: isMobile ? '32px' : '6.5rem', // <-- THIS LINE ensures equal gaps
     paddingLeft: isMobile ? '0' : '40px',
     paddingRight: isMobile ? '0' : '40px',
     paddingTop: isMobile ? '0' : '2rem',
