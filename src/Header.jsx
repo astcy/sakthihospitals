@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import logo from "./assets/logo (2).png";
 
 const Header = () => {
@@ -19,13 +20,11 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
       if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
         setShowHeader(false); // hide on scroll down
       } else {
         setShowHeader(true); // show on scroll up
       }
-
       lastScrollY.current = currentScrollY;
     };
 
@@ -34,20 +33,20 @@ const Header = () => {
   }, []);
 
   const navLinks = [
-    "About",
-    "Specialties",
-    "Facilities",
-    "Our Doctors",
-    "Health Packages",
-    "Insurance",
-    "Blogs",
+    { label: "About", path: "/about" },
+    { label: "Specialties", path: "/specialties" },
+    { label: "Facilities", path: "/facilities" },
+    { label: "Our Doctors", path: "/doctors" },
+    { label: "Health Packages", path: "/packages" },
+    { label: "Insurance", path: "/insurance" },
+    { label: "Blogs", path: "/blogs" },
   ];
 
   return (
     <>
       <header
         style={{
-          width: "100%", // ✅ Changed from 100vw
+          width: "100%",
           backgroundColor: "#b9d9f4",
           backgroundRepeat: "repeat-x",
           backgroundPosition: "bottom",
@@ -67,12 +66,12 @@ const Header = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            flexWrap: "wrap", // ✅ Allow wrapping
+            flexWrap: "wrap",
             height: "70px",
             padding: isTabletOrMobile ? "0 12px" : "0 24px",
             width: "100%",
-            maxWidth: "1280px", // ✅ Prevent full-width stretch
-            margin: "0 auto", // ✅ Center the container
+            maxWidth: "1280px",
+            margin: "0 auto",
             boxSizing: "border-box",
           }}
         >
@@ -81,23 +80,31 @@ const Header = () => {
             style={{
               display: "flex",
               alignItems: "center",
-              gap: isTabletOrMobile ? "24px" : "50px", // ✅ Responsive spacing
+              gap: isTabletOrMobile ? "24px" : "50px",
               flexWrap: "wrap",
-              marginLeft: isTabletOrMobile ? "0px" : "-12px", // ✅ Moved slightly left
+              marginLeft: isTabletOrMobile ? "0px" : "-12px",
             }}
           >
-            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-              <img
-                src={logo}
-                alt="Hospital logo"
-                style={{
-                  width: isTabletOrMobile ? "160px" : "220px", // ✅ Responsive
-                  height: "50px",
-                  objectFit: "contain",
-                }}
-              />
-            </div>
-
+           <Link
+  to="/"
+  onClick={() => setMenuOpen(false)} // closes sidebar on mobile
+  style={{
+    display: "flex",
+    alignItems: "center",
+    gap: "12px",
+    textDecoration: "none",
+  }}
+>
+  <img
+    src={logo}
+    alt="Hospital logo"
+    style={{
+      width: isTabletOrMobile ? "160px" : "220px",
+      height: "50px",
+      objectFit: "contain",
+    }}
+  />
+</Link>
             {/* Desktop Nav */}
             {!isTabletOrMobile && (
               <nav
@@ -110,22 +117,23 @@ const Header = () => {
                 }}
               >
                 {navLinks.map((item) => (
-                  <a
-                    key={item}
-                    href="#"
+                  <Link
+                    key={item.label}
+                    to={item.path}
                     style={{
                       textDecoration: "none",
                       color: "#1a202c",
+                      transition: "text-decoration 0.2s",
                     }}
-                    onMouseEnter={(e) =>
+                    onMouseEnter={e =>
                       (e.target.style.textDecoration = "underline")
                     }
-                    onMouseLeave={(e) =>
+                    onMouseLeave={e =>
                       (e.target.style.textDecoration = "none")
                     }
                   >
-                    {item}
-                  </a>
+                    {item.label}
+                  </Link>
                 ))}
               </nav>
             )}
@@ -216,9 +224,9 @@ const Header = () => {
           </button>
 
           {navLinks.map((item) => (
-            <a
-              key={item}
-              href="#"
+            <Link
+              key={item.label}
+              to={item.path}
               onClick={() => setMenuOpen(false)}
               style={{
                 margin: "12px 0",
@@ -228,8 +236,8 @@ const Header = () => {
                 fontWeight: 500,
               }}
             >
-              {item}
-            </a>
+              {item.label}
+            </Link>
           ))}
         </div>
       )}

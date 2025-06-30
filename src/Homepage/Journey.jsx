@@ -5,6 +5,66 @@ import journey from "../assets/journey.png";
 import overlayIcon from "../assets/overlayIcon.png";
 
 const Journey = () => {
+  const [isMobile, setIsMobile] = React.useState(window.innerWidth < 600);
+  React.useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 600);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Responsive overrides for mobile only
+  const responsive = isMobile
+    ? {
+        outer: {
+          padding: 0,
+        },
+        inner: {
+          minHeight: "auto",
+          padding: "1.2rem 0.5rem",
+          marginTop: "-5px",
+        },
+        motionDiv: {
+          flexDirection: "column",
+          gap: "1.2rem",
+          marginLeft: 0,
+        },
+        leftImg: {
+          maxWidth: "98vw",
+          width: "100%",
+        },
+        img: {
+          borderRadius: "12px",
+        },
+        overlay: {
+          width: "220px",
+          height: "190px",
+          right: "-25px",
+          bottom: "-8px",
+        },
+        rightText: {
+          maxWidth: "98vw",
+          paddingTop: "1.2rem",
+          textAlign: "center",
+        },
+        h2: {
+          fontSize: "2rem",
+          marginBottom: "0.8rem",
+        },
+        pTitle: {
+          fontSize: "1.1rem",
+          marginBottom: "1.2rem",
+        },
+        h4: {
+          fontSize: "1rem",
+          marginBottom: "0.7rem",
+        },
+        pBody: {
+          fontSize: "0.95rem",
+          maxWidth: "100%",
+        },
+      }
+    : {};
+
   return (
     <div
       style={{
@@ -13,6 +73,7 @@ const Journey = () => {
         margin: 0,
         padding: 0,
         overflowX: "hidden",
+        ...responsive.outer,
       }}
     >
       <div
@@ -25,6 +86,7 @@ const Journey = () => {
           marginTop: "-10px",
           position: "relative",
           boxSizing: "border-box",
+          ...responsive.inner,
         }}
       >
         <SectionWrapper>
@@ -33,14 +95,14 @@ const Journey = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             style={{
-                  marginLeft: "-10px",               // Move entire section 40px left
-
+              marginLeft: "-10px",
               width: "100%",
               display: "flex",
               flexDirection: window.innerWidth >= 1024 ? "row" : "column",
               justifyContent: "space-between",
               alignItems: "center",
               gap: "3rem",
+              ...responsive.motionDiv,
             }}
           >
             {/* Left Image Section */}
@@ -53,6 +115,7 @@ const Journey = () => {
                 flex: "1 1 50%",
                 maxWidth: "600px",
                 width: "100%",
+                ...responsive.leftImg,
               }}
             >
               <div
@@ -73,6 +136,7 @@ const Journey = () => {
                     borderRadius: "20px",
                     objectFit: "cover",
                     display: "block",
+                    ...responsive.img,
                   }}
                 />
 
@@ -88,6 +152,7 @@ const Journey = () => {
                     height: "300px",
                     objectFit: "contain",
                     zIndex: 10,
+                    ...responsive.overlay,
                   }}
                 />
               </div>
@@ -103,6 +168,7 @@ const Journey = () => {
                 maxWidth: "600px",
                 textAlign: "left",
                 paddingTop: window.innerWidth < 1024 ? "2rem" : "0",
+                ...responsive.rightText,
               }}
             >
               <h2
@@ -112,6 +178,7 @@ const Journey = () => {
                   fontWeight: "600",
                   marginBottom: "1rem",
                   fontFamily: "Figtree, sans-serif",
+                  ...responsive.h2,
                 }}
               >
                 About Us
@@ -125,6 +192,7 @@ const Journey = () => {
                   marginBottom: "2rem",
                   lineHeight: "1.4",
                   fontFamily: "Figtree, sans-serif",
+                  ...responsive.pTitle,
                 }}
               >
                 Sakthi Hospital – Where Healing Begins
@@ -142,6 +210,7 @@ const Journey = () => {
                   gap: "0.6rem",
                   marginBottom: "1rem",
                   fontFamily: "Figtree, sans-serif",
+                  ...responsive.h4,
                 }}
               >
                 <span
@@ -162,8 +231,8 @@ const Journey = () => {
                   fontSize: "1rem",
                   lineHeight: "1.6",
                   maxWidth: "90%",
-                                      fontSize: "1rem",
                   fontFamily: "Poppins, sans-serif",
+                  ...responsive.pBody,
                 }}
               >
                 Sakthi hospital was started in the year 1985 in Mannady, as a

@@ -16,68 +16,68 @@ const Footer = () => {
   const poppins = "'Poppins', sans-serif";
   const figtree = "'Figtree', sans-serif";
 
-  // Newsletter box styles
+  // Newsletter box styles - UPDATED FOR MOBILE VISIBILITY AND LEFT ALIGNMENT
   const subscribeBoxStyles = {
     background: '#fff',
     borderRadius: '12px',
     boxShadow: '0 8px 32px #93c5fd33',
-    maxWidth: '910px',
-    margin: '0 auto',
+    maxWidth: isMobile ? '100%' : '910px',
+    width: isMobile ? '100%' : 'auto',
+    margin: isMobile ? '20px 0 40px 0' : '0 auto',
     marginTop: isMobile ? '20px' : '40px',
     marginBottom: isMobile ? '40px' : '-100px',
-    padding: isMobile ? '32px 16px' : '48px 60px',
+    padding: isMobile ? '24px 10px' : '48px 60px',
     display: 'flex',
     flexDirection: isMobile ? 'column' : 'row',
-    alignItems: isMobile ? 'flex-start' : 'center',
+    alignItems: isMobile ? 'stretch' : 'center',
     justifyContent: 'space-between',
-    gap: isMobile ? '30px' : '0',
+    gap: isMobile ? '18px' : '0',
     position: 'relative',
     zIndex: 2,
-    marginLeft:'160px',
+    marginLeft: isMobile ? 0 : '160px',
+    boxSizing: 'border-box',
   };
 
   const subscribeLeftStyles = {
     flex: 1,
     minWidth: isMobile ? '100%' : '320px',
-    marginBottom: isMobile ? '14px' : 0,
+    marginBottom: isMobile ? '8px' : 0,
   };
 
   const subscribeTitleStyles = {
     color: '#1e293b',
     fontWeight: 600,
     fontSize: isMobile ? '20px' : '30px',
-    marginBottom: '14px',
+    marginBottom: '10px',
     fontFamily: figtree,
     lineHeight: 1.2,
   };
 
   const subscribeDescStyles = {
     color: '#64748b',
-    fontSize: isMobile ? '12px' : '12px',
+    fontSize: isMobile ? '14px' : '12px',
     fontFamily: poppins,
     marginTop: '0',
     marginBottom: '0',
     fontWeight: 400,
   };
 
-  // Email label above the box
   const emailLabelStyles = {
     color: '#334155',
     fontFamily: poppins,
-    fontSize: '12px',
+    fontSize: '14px',
     fontWeight: 500,
     marginBottom: '2px',
     marginLeft: '8px',
   };
 
-  // Input group: border extends past the button, button is inside box, left-aligned
   const inputGroupStyles = {
     display: 'flex',
     alignItems: 'center',
     border: '1.5px solid #cbd5e1',
     borderRadius: '20px',
     background: '#f8fafc',
-    width: isMobile ? '100%' : '380px',
+    width: '100%',
     padding: '8px',
     boxSizing: 'border-box',
     position: 'relative',
@@ -85,7 +85,7 @@ const Footer = () => {
 
   const inputStyles = {
     padding: isMobile ? '10px 14px' : '12px 20px',
-    fontSize: '15px',
+    fontSize: '16px',
     fontFamily: poppins,
     border: 'none',
     outline: 'none',
@@ -100,7 +100,7 @@ const Footer = () => {
     color: '#fff',
     border: 'none',
     padding: isMobile ? '10px 20px' : '12px 28px',
-    fontSize: '15px',
+    fontSize: '16px',
     fontWeight: 600,
     fontFamily: poppins,
     boxShadow: '307bc4',
@@ -110,10 +110,6 @@ const Footer = () => {
     justifyContent: 'center',
     transition: 'background 0.2s',
     borderRadius: '24px',
-    marginLeft: '0px',
-    // Make the button appear inside the box, not flush right
-    position: 'relative',
-    left: '0',
     minWidth: '90px',
   };
 
@@ -130,7 +126,7 @@ const Footer = () => {
     margin: '0 auto',
     display: 'grid',
     gridTemplateColumns: isMobile ? '1fr' : '1.3fr 1fr 1fr 1fr',
-  gap: isMobile ? '32px' : '6.5rem', // <-- THIS LINE ensures equal gaps
+    gap: isMobile ? '32px' : '6rem',
     paddingLeft: isMobile ? '0' : '40px',
     paddingRight: isMobile ? '0' : '40px',
     paddingTop: isMobile ? '0' : '2rem',
@@ -138,11 +134,11 @@ const Footer = () => {
   };
 
   const logoImgStyles = {
-marginBottom:'-10px',
+    marginBottom: '-10px',
     objectFit: 'contain',
     boxShadow: 'none',
-    width: '250px',
-      marginLeft: isMobile ? '-10px' : '-20px', // <-- THIS LINE moves the logo left
+    width: isMobile ? '200px' : '250px',
+    marginLeft: isMobile ? '-10px' : '-20px',
   };
 
   const hospitalTitleStyles = {
@@ -165,9 +161,8 @@ marginBottom:'-10px',
   };
 
   const infoLineStyles = {
-    fontSize: isMobile ? '13px' : '14px',
+    fontSize: '12px',
     lineHeight: 2,
-     fontSize: '12px',
     opacity: 0.9,
     fontFamily: poppins,
     display: 'flex',
@@ -179,21 +174,19 @@ marginBottom:'-10px',
     color: 'white',
     textDecoration: 'none',
     opacity: 0.85,
-    fontSize: isMobile ? '14px' : '15px',
+    fontSize: '12px',
     fontFamily: poppins,
     transition: 'opacity 0.18s',
-    fontSize: '12px',
   };
 
   const iconStyle = {
-    fontSize: isMobile ? '18px' : '20px',
+    fontSize: '25px',
     cursor: 'pointer',
     opacity: 0.85,
     background: '#fff2',
     borderRadius: '50%',
     padding: '6px',
     transition: 'background 0.18s, opacity 0.18s',
-    fontSize: '25px',
   };
 
   const copyrightStyles = {
@@ -201,15 +194,14 @@ marginBottom:'-10px',
     borderTop: '2px solid rgba(255,255,255,0.13)',
     marginTop: isMobile ? '2.5rem' : '2.8rem',
     paddingTop: '1.2rem',
-    fontSize: isMobile ? '13px' : '15px',
+    fontSize: '12px',
     opacity: 0.7,
     fontFamily: poppins,
-    fontSize: '12px',
   };
 
   return (
     <footer style={{ background: 'none', position: 'relative', zIndex: 1 }}>
-      {/* Newsletter Box */}
+      {/* Newsletter Box - NOW FULLY VISIBLE AND LEFT-ALIGNED ON MOBILE */}
       <div style={subscribeBoxStyles}>
         <div style={subscribeLeftStyles}>
           <div style={subscribeTitleStyles}>Be Our<br />Subscribers</div>
@@ -217,7 +209,16 @@ marginBottom:'-10px',
             to get the latest news about health<br />from our experts
           </p>
         </div>
-        <form style={{ flex: 1, minWidth: isMobile ? '100%' : '340px', display: 'flex', flexDirection: 'column', gap: '8px' }} onSubmit={e => e.preventDefault()}>
+        <form
+          style={{
+            flex: 1,
+            minWidth: isMobile ? '100%' : '340px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '8px',
+          }}
+          onSubmit={e => e.preventDefault()}
+        >
           <label style={emailLabelStyles}>Your Email</label>
           <div style={inputGroupStyles}>
             <input
@@ -241,7 +242,7 @@ marginBottom:'-10px',
             <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '1.2rem' }}>
               <img src={logo} alt="Sakthi Hospital Logo" style={logoImgStyles} />
             </div>
-            <div style={{ fontFamily: poppins, fontSize: '12px',marginBottom:'2px', }}>Sakthi Hospital & Research Centre</div>
+            <div style={{ fontFamily: poppins, fontSize: '12px', marginBottom: '2px' }}>Sakthi Hospital & Research Centre</div>
             <div>
               <div style={infoLineStyles}><FaMapMarkerAlt /> 123 Anywhere St., Any City 12345</div>
               <div style={infoLineStyles}><FaPhoneAlt /> 123-456-7890</div>

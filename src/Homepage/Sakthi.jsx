@@ -250,24 +250,30 @@ const Sakthi = () => (
           gap: 1.1rem;
         }
       }
+@media (max-width: 600px) {
+.sakthi-booking-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-top: 0 !important;
+  padding: 0 2rem 0.2rem !important;
+  gap: 0 !important;
+}
 
-      @media (max-width: 600px) {
-        .sakthi-headline {
-          font-size: 2rem !important;
-        }
-        .sakthi-desc {
-          font-size: 1rem !important;
-        }
-        .sakthi-image-card {
-          min-height: 180px;
-          margin-bottom: -0.8rem;
-        }
-        .sakthi-booking-bar {
-          flex-direction: column;
-          align-items: stretch;
-          padding: 1rem 0.5rem;
-        }
-      }
+  .sakthi-booking-item {
+    margin-bottom: -6rem !important;   /* Minimal space between booking items */
+    gap: 20px !important;                 /* Reduce icon/text gap */
+    min-width: 0 !important;             /* Allow better shrinking */
+  }
+  .sakthi-book-btn {
+    margin-top: 3rem !important;       /* Less space above button */
+    padding: 8px 14px !important;        /* Smaller button for mobile */
+    min-width: 90px !important;
+    font-size: 0.92rem !important;
+  }
+}
+
+
     `}</style>
 
     <div className="sakthi-container">
