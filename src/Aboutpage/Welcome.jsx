@@ -1,6 +1,5 @@
 import React from "react";
 import hospitalImg from "../assets/Hospital.png";
-import bgOverlay from "../assets/bgOverlay.png";
 import heartbeatIcon from "../assets/heartbeatIcon.png";
 import badgeImg from "../assets/badgeIcon.png";
 
@@ -12,11 +11,35 @@ const Welcome = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // OUTER WRAPPER
+  // Solid top section with wave-like gradient below
   const outerWrapper = {
     width: "100%",
-    background: "linear-gradient(90deg, #cce7f9 0%, #b9d9f4 100%)",
     overflow: "hidden",
+    position: "relative",
+    background: "#b9d9f4", // Solid top color
+  };
+
+  // Wave-like gradient container (RIGHT to LEFT)
+  const waveGradient = {
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    width: "100%",
+    height: "80%",
+    background: `
+      linear-gradient(270deg, 
+        #5ea3d6 0%, 
+        #6aacdc 15%, 
+        #7db6e8 30%, 
+        #8fc0f4 45%, 
+        #a0c9ff 60%, 
+        #b9d9f4 75%, 
+rgb(227, 229, 232) 102%, 
+        #7db6e8 100%)
+    `,
+    zIndex: 1,
+    mask: "linear-gradient(to bottom, transparent 0%, black 20%)",
+    WebkitMask: "linear-gradient(to bottom, transparent 0%, black 20%)",
   };
 
   const gradientBg = {
@@ -29,6 +52,7 @@ const Welcome = () => {
     padding: isMobile ? "24px 16px 16px" : "32px 30px 2px",
     boxSizing: "border-box",
     marginTop: "60px",
+    zIndex: 3,
   };
 
   const leftSection = {
@@ -49,7 +73,7 @@ const Welcome = () => {
     borderRadius: "10px",
     boxShadow: "none",
     display: "block",
-    marginLeft: "100px",
+    marginLeft: isMobile ? 0 : "100px",
   };
 
   const topIcon = {
@@ -77,7 +101,7 @@ const Welcome = () => {
 
   const rightSection = {
     zIndex: 2,
-    marginRight: "320px",
+    marginRight: isMobile ? 0 : "320px",
     marginTop: isMobile ? 28 : 60,
     maxWidth: isMobile ? "100%" : 480,
     textAlign: isMobile ? "center" : "left",
@@ -104,18 +128,7 @@ const Welcome = () => {
     opacity: 0.9,
   };
 
-  const backgroundImageStyle = {
-    position: "absolute",
-    top: isMobile ? "auto" : "20%",
-    right: isMobile ? "auto" : "4%",
-    bottom: isMobile ? "-20px" : "auto",
-    width: isMobile ? "120px" : "180px",
-    height: "auto",
-    opacity: 0.15,
-    zIndex: 1,
-  };
-
-  // Responsive overrides (do NOT disturb existing code)
+  // Responsive overrides
   const responsiveStyles = isMobile
     ? {
         gradientBg: {
@@ -144,30 +157,16 @@ const Welcome = () => {
         heading: {
           fontSize: "1.4rem",
         },
-        backgroundImageStyle: {
-          top: "auto",
-          right: "auto",
-          bottom: "0px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: "120px",
-        },
       }
     : {};
 
   return (
     <div style={outerWrapper}>
+      {/* Wave gradient layer */}
+      <div style={waveGradient}></div>
       <div style={{ ...gradientBg, ...responsiveStyles.gradientBg }}>
-        {/* Decorative Background Image */}
-        <img
-          src={bgOverlay}
-          alt="Background Decoration"
-          style={{ ...backgroundImageStyle, ...responsiveStyles.backgroundImageStyle }}
-        />
-
         {/* Left Section */}
         <div style={{ ...leftSection, ...responsiveStyles.leftSection }}>
-          {/* Heartbeat Icon - only show on desktop/tablet */}
           {!isMobile && (
             <div style={topIcon}>
               <img
@@ -177,13 +176,11 @@ const Welcome = () => {
               />
             </div>
           )}
-          {/* Hospital Image */}
           <img
             src={hospitalImg}
             alt="Sakthi Hospital building"
             style={{ ...hospitalImgStyle, ...responsiveStyles.hospitalImgStyle }}
           />
-          {/* Badge Icon - only show on desktop/tablet */}
           {!isMobile && (
             <img
               src={badgeImg}
@@ -192,7 +189,6 @@ const Welcome = () => {
             />
           )}
         </div>
-
         {/* Right Section */}
         <div style={{ ...rightSection, ...responsiveStyles.rightSection }}>
           <h1 style={{ ...heading, ...responsiveStyles.heading }}>

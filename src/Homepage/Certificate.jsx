@@ -124,21 +124,39 @@ const CertificateTextCard = ({ icon, title, desc, alignTop = false, width }) => 
 // Main Certificate Section
 const Certificate = () => {
   const [cardWidth, setCardWidth] = useState("240px");
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
-    const updateCardWidth = () => {
+    const updateLayout = () => {
       const screenWidth = window.innerWidth;
-      if (screenWidth < 768) {
-        setCardWidth("calc(50% - 20px)");
-      } else {
-        setCardWidth("240px");
-      }
+      setIsMobile(screenWidth < 768);
+      setCardWidth(screenWidth < 768 ? "calc(50% - 10px)" : "240px");
     };
 
-    updateCardWidth();
-    window.addEventListener("resize", updateCardWidth);
-    return () => window.removeEventListener("resize", updateCardWidth);
+    updateLayout();
+    window.addEventListener("resize", updateLayout);
+    return () => window.removeEventListener("resize", updateLayout);
   }, []);
+
+  // Responsive overrides for small screens only
+  const sectionResponsive = isMobile
+    ? {
+        padding: "32px 8px",
+        marginLeft: 0,
+      }
+    : {};
+  const h2Responsive = isMobile
+    ? {
+        fontSize: "28px",
+        textAlign: "center",
+      }
+    : {};
+  const cardsResponsive = isMobile
+    ? {
+        gap: "12px",
+        justifyContent: "center",
+      }
+    : {};
 
   return (
     <section
@@ -149,6 +167,7 @@ const Certificate = () => {
         width: "100%",
         margin: "0 auto",
         marginLeft: "90px",
+        ...sectionResponsive,
       }}
     >
       <h2
@@ -158,6 +177,7 @@ const Certificate = () => {
           fontWeight: "700",
           fontFamily: "'Figtree', sans-serif",
           marginBottom: "30px",
+          ...h2Responsive,
         }}
       >
         Certifications
@@ -169,6 +189,7 @@ const Certificate = () => {
           flexWrap: "wrap",
           gap: "28px",
           justifyContent: "flex-start",
+          ...cardsResponsive,
         }}
       >
         <CertificateLogoCard

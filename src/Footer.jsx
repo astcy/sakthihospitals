@@ -16,15 +16,15 @@ const Footer = () => {
   const poppins = "'Poppins', sans-serif";
   const figtree = "'Figtree', sans-serif";
 
-  // Newsletter box styles - UPDATED FOR MOBILE VISIBILITY AND LEFT ALIGNMENT
+  // Newsletter box styles - updated for small screen top margin
   const subscribeBoxStyles = {
     background: '#fff',
     borderRadius: '12px',
     boxShadow: '0 8px 32px #93c5fd33',
     maxWidth: isMobile ? '100%' : '910px',
     width: isMobile ? '100%' : 'auto',
-    margin: isMobile ? '20px 0 40px 0' : '0 auto',
-    marginTop: isMobile ? '20px' : '40px',
+    margin: isMobile ? '8px 0 40px 0' : '0 auto', // reduced top margin for mobile
+    marginTop: isMobile ? '8px' : '40px',         // reduced top margin for mobile
     marginBottom: isMobile ? '40px' : '-100px',
     padding: isMobile ? '24px 10px' : '48px 60px',
     display: 'flex',
@@ -71,35 +71,45 @@ const Footer = () => {
     marginLeft: '8px',
   };
 
-  const inputGroupStyles = {
-    display: 'flex',
-    alignItems: 'center',
-    border: '1.5px solid #cbd5e1',
-    borderRadius: '20px',
-    background: '#f8fafc',
-    width: '100%',
-    padding: '8px',
-    boxSizing: 'border-box',
-    position: 'relative',
-  };
+  // For mobile: input and button stack vertically, not inline
+  const inputGroupStyles = isMobile
+    ? {
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '10px',
+        width: '100%',
+      }
+    : {
+        display: 'flex',
+        alignItems: 'center',
+        border: '1.5px solid #cbd5e1',
+        borderRadius: '20px',
+        background: '#f8fafc',
+        width: '100%',
+        padding: '8px',
+        boxSizing: 'border-box',
+        position: 'relative',
+      };
 
   const inputStyles = {
     padding: isMobile ? '10px 14px' : '12px 20px',
     fontSize: '16px',
     fontFamily: poppins,
-    border: 'none',
+    border: isMobile ? '1.5px solid #cbd5e1' : 'none',
     outline: 'none',
     flex: 1,
     color: '#334155',
-    background: 'transparent',
+    background: isMobile ? '#f8fafc' : 'transparent',
     borderRadius: '30px',
+    width: '100%',
+    boxSizing: 'border-box',
   };
 
   const buttonStyles = {
     background: '#307bc4',
     color: '#fff',
     border: 'none',
-    padding: isMobile ? '10px 20px' : '12px 28px',
+    padding: isMobile ? '12px 0' : '12px 28px',
     fontSize: '16px',
     fontWeight: 600,
     fontFamily: poppins,
@@ -110,7 +120,8 @@ const Footer = () => {
     justifyContent: 'center',
     transition: 'background 0.2s',
     borderRadius: '24px',
-    minWidth: '90px',
+    minWidth: isMobile ? '100%' : '90px',
+    width: isMobile ? '100%' : 'auto',
   };
 
   const footerStyles = {
@@ -201,7 +212,7 @@ const Footer = () => {
 
   return (
     <footer style={{ background: 'none', position: 'relative', zIndex: 1 }}>
-      {/* Newsletter Box - NOW FULLY VISIBLE AND LEFT-ALIGNED ON MOBILE */}
+      {/* Newsletter Box */}
       <div style={subscribeBoxStyles}>
         <div style={subscribeLeftStyles}>
           <div style={subscribeTitleStyles}>Be Our<br />Subscribers</div>
@@ -233,7 +244,6 @@ const Footer = () => {
           </div>
         </form>
       </div>
-
       {/* Footer Grid */}
       <div style={footerStyles}>
         <div style={gridStyles}>

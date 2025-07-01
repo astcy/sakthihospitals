@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import doctor1 from "../assets/Doctor3 .png";
 import doctor2 from "../assets/Doctor3.png";
 import doctor3 from "../assets/Doctor2.png";
@@ -45,10 +45,35 @@ const doctors = [
 
 const Meet = () => {
   const [hovered, setHovered] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 600);
+  const [slideIndex, setSlideIndex] = useState(0);
 
-  return (
-    <section
-      style={{
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 600);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Only show one card at a time on mobile, all on desktop
+  const visibleDoctors = isMobile ? [doctors[slideIndex]] : doctors;
+  const canSlideLeft = isMobile && slideIndex > 0;
+  const canSlideRight = isMobile && slideIndex < doctors.length - 1;
+
+  // Add minHeight and overflow for mobile to prevent overlap
+  const meetSectionStyle = isMobile
+    ? {
+        background: "#fff",
+        padding: "32px 8px",
+        textAlign: "center",
+        fontFamily: "'Segoe UI', sans-serif",
+        maxWidth: "1300px",
+        width: "100%",
+        margin: "0 auto",
+        minHeight: "620px", // Ensure enough space for card and controls
+        overflow: "hidden",
+        position: "relative",
+      }
+    : {
         background: "#fff",
         padding: "60px 40px",
         textAlign: "center",
@@ -56,9 +81,11 @@ const Meet = () => {
         maxWidth: "1300px",
         width: "100%",
         margin: "0 auto",
-      }}
-    >
-      <div style={{ marginBottom: 60 }}>
+      };
+
+  return (
+    <section style={meetSectionStyle}>
+      <div style={{ marginBottom: isMobile ? 32 : 60 }}>
         <h4
           style={{
             fontFamily: "'Figtree', sans-serif",
@@ -75,35 +102,98 @@ const Meet = () => {
         <h2
           style={{
             fontFamily: "'Figtree', sans-serif",
-            fontSize: 44,
+            fontSize: isMobile ? 28 : 44,
             fontWeight: 700,
             color: "#1e293b",
-            margin: "10px 0 50px 0",
+            margin: isMobile ? "10px 0 24px 0" : "10px 0 50px 0",
           }}
         >
           Experts Doctor
         </h2>
       </div>
 
+      {/* Slider Controls for Mobile */}
+      {isMobile && (
+        <div style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: 8,
+          marginBottom: 16,
+          position: "relative",
+          zIndex: 2,
+        }}>
+          <button
+            onClick={() => setSlideIndex((prev) => Math.max(prev - 1, 0))}
+            disabled={!canSlideLeft}
+            style={{
+              background: "#e8f4fd",
+              color: "#2563eb",
+              border: "none",
+              borderRadius: "50%",
+              width: 32,
+              height: 32,
+              fontSize: 18,
+              cursor: canSlideLeft ? "pointer" : "not-allowed",
+              opacity: canSlideLeft ? 1 : 0.5,
+              transition: "opacity 0.2s",
+            }}
+            aria-label="Previous"
+          >
+            &#8592;
+          </button>
+          <span style={{ fontSize: 14, color: "#2563eb" }}>
+            {slideIndex + 1} / {doctors.length}
+          </span>
+          <button
+            onClick={() => setSlideIndex((prev) => Math.min(prev + 1, doctors.length - 1))}
+            disabled={!canSlideRight}
+            style={{
+              background: "#e8f4fd",
+              color: "#2563eb",
+              border: "none",
+              borderRadius: "50%",
+              width: 32,
+              height: 32,
+              fontSize: 18,
+              cursor: canSlideRight ? "pointer" : "not-allowed",
+              opacity: canSlideRight ? 1 : 0.5,
+              transition: "opacity 0.2s",
+            }}
+            aria-label="Next"
+          >
+            &#8594;
+          </button>
+        </div>
+      )}
+
       <div
         style={{
           display: "flex",
-          flexWrap: "wrap",
+          flexDirection: isMobile ? "row" : "row",
+          flexWrap: isMobile ? "nowrap" : "wrap",
           justifyContent: "center",
-          gap: "46px",
+          alignItems: isMobile ? "stretch" : "center",
+          gap: isMobile ? "0" : "46px",
+          width: "100%",
+          overflowX: isMobile ? "auto" : "visible",
+          position: "relative",
+          zIndex: 1,
         }}
       >
-        {doctors.map((doc, index) => {
-          const isHovered = hovered === index;
+        {visibleDoctors.map((doc, index) => {
+          const cardIndex = isMobile ? slideIndex : index;
+          const isHovered = hovered === cardIndex;
 
           return (
             <div
-              key={index}
-              onMouseEnter={() => setHovered(index)}
+              key={cardIndex}
+              onMouseEnter={() => setHovered(cardIndex)}
               onMouseLeave={() => setHovered(null)}
               style={{
-                width: "100%",
-                maxWidth: 320,
+                width: isMobile ? "100vw" : "100%",
+                maxWidth: isMobile ? "340px" : 320,
+                minWidth: isMobile ? "90vw" : undefined,
                 minHeight: 520,
                 borderRadius: 18,
                 boxShadow: isHovered
@@ -117,6 +207,7 @@ const Meet = () => {
                 textAlign: "center",
                 position: "relative",
                 transition: "all 0.25s ease-in-out",
+                margin: isMobile ? "0 auto" : 0,
               }}
             >
               {/* Image Section */}
@@ -126,7 +217,7 @@ const Meet = () => {
                   height: 260,
                   borderRadius: "14px 14px 0 0",
                   background:
-                    !isHovered && index !== 2 ? "#e8f4fd" : "#e8f4fd",
+                    !isHovered && cardIndex !== 2 ? "#e8f4fd" : "#e8f4fd",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -151,7 +242,7 @@ const Meet = () => {
               {/* Name */}
               <h3
                 style={{
-                  fontSize: 22,
+                  fontSize: isMobile ? 18 : 22,
                   fontWeight: 700,
                   color: "#1e293b",
                   margin: "10px 0 6px",
@@ -186,7 +277,7 @@ const Meet = () => {
                   overflow: "hidden",
                   display: "-webkit-box",
                   WebkitBoxOrient: "vertical",
-                  WebkitLineClamp: index === 0 && !isHovered ? 3 : "unset",
+                  WebkitLineClamp: cardIndex === 0 && !isHovered ? 3 : "unset",
                 }}
               >
                 {doc.desc}

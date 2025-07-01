@@ -101,7 +101,7 @@ main: {
     marginTop: "10px",
     padding: "10px",
     borderRadius: "20px",
-    backgroundColor: "#f3f8ff",
+    backgroundColor: "none",
   },
   blueBg: {
     position: "absolute",

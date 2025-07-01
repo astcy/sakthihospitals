@@ -45,22 +45,32 @@ const Journey = () => {
           maxWidth: "98vw",
           paddingTop: "1.2rem",
           textAlign: "center",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
         },
         h2: {
           fontSize: "2rem",
           marginBottom: "0.8rem",
+          textAlign: "center",
         },
         pTitle: {
           fontSize: "1.1rem",
           marginBottom: "1.2rem",
+          textAlign: "center",
         },
         h4: {
           fontSize: "1rem",
           marginBottom: "0.7rem",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: "0.6rem",
         },
         pBody: {
           fontSize: "0.95rem",
           maxWidth: "100%",
+          textAlign: "center",
         },
       }
     : {};

@@ -45,7 +45,8 @@ function Asked() {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
-      padding: isMobile ? "22px 4px" : "60px 0",
+      // No bottom space for mobile, normal for desktop
+      padding: isMobile ? "22px 4px 0 4px" : "60px 0",
       fontFamily: poppins,
     },
     title: {
@@ -103,7 +104,7 @@ function Asked() {
     },
     question: {
       color: "#1e293b",
-      fontWeight: 500, // Reduced from 700
+      fontWeight: 500,
       fontSize: isMobile ? "15px" : "18px",
       margin: 0,
       flex: 1,
@@ -131,7 +132,7 @@ function Asked() {
       marginTop: isMobile ? "8px" : "13px",
       color: "#334155",
       fontSize: isMobile ? "13px" : "15px",
-      fontWeight: 300, // Reduced from 400
+      fontWeight: 300,
       fontFamily: poppins,
       lineHeight: 1.6,
       userSelect: "none",

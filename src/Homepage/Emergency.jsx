@@ -17,6 +17,7 @@ const departments = [
 
 const Emergency = () => {
   const [hoverIndex, setHoverIndex] = useState(null);
+  const isMobile = window.innerWidth < 768;
 
   return (
     <div
@@ -31,7 +32,7 @@ const Emergency = () => {
       <div
         style={{
           width: "100%",
-          maxWidth: "1080px", // slightly reduced from 1100px
+          maxWidth: "1080px",
           margin: "0 20px",
         }}
       >
@@ -62,13 +63,14 @@ const Emergency = () => {
               flexWrap: "wrap",
               justifyContent: "center",
               gap: "20px",
-              position: "absolute",
-              left: "50%",
-              transform: "translateX(-50%)",
-              bottom: "-60px",
+              position: isMobile ? "static" : "absolute",
+              left: isMobile ? "auto" : "50%",
+              transform: isMobile ? "none" : "translateX(-50%)",
+              bottom: isMobile ? "auto" : "-60px",
               width: "100%",
-              maxWidth: "1160px", // slightly reduced from 1180px
+              maxWidth: "1160px",
               padding: "0 20px",
+              marginTop: isMobile ? "30px" : 0, // <-- Only for small screens
             }}
           >
             {departments.map((dept, index) => {
@@ -123,15 +125,15 @@ const Emergency = () => {
         </div>
 
         {/* Space for cards to float below gradient container */}
-        <div style={{ height: "120px" }}></div>
+        {!isMobile && <div style={{ height: "120px" }}></div>}
 
         {/* Responsive styling using CSS class */}
         <style>
           {`
             .dept-card {
               flex: 1 1 calc(14% - 20px);
-              max-width: 155px; /* slightly reduced from 160px */
-              min-width: 135px; /* slightly reduced from 140px */
+              max-width: 155px;
+              min-width: 135px;
             }
 
             @media (max-width: 1024px) {

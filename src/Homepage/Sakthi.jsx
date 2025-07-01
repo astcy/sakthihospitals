@@ -63,6 +63,13 @@ const Sakthi = () => (
         letter-spacing: 3px;
       }
 
+      /* Responsive: Only reduce headline font size for small screens */
+      @media (max-width: 600px) {
+        .sakthi-headline {
+          font-size: 2.1rem !important;
+        }
+      }
+
       .sakthi-desc {
         font-family: 'Poppins', Arial, sans-serif;
         font-size: 0.95rem;
@@ -250,30 +257,27 @@ const Sakthi = () => (
           gap: 1.1rem;
         }
       }
-@media (max-width: 600px) {
-.sakthi-booking-bar {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  margin-top: 0 !important;
-  padding: 0 2rem 0.2rem !important;
-  gap: 0 !important;
-}
-
-  .sakthi-booking-item {
-    margin-bottom: -6rem !important;   /* Minimal space between booking items */
-    gap: 20px !important;                 /* Reduce icon/text gap */
-    min-width: 0 !important;             /* Allow better shrinking */
-  }
-  .sakthi-book-btn {
-    margin-top: 3rem !important;       /* Less space above button */
-    padding: 8px 14px !important;        /* Smaller button for mobile */
-    min-width: 90px !important;
-    font-size: 0.92rem !important;
-  }
-}
-
-
+      @media (max-width: 600px) {
+        .sakthi-booking-bar {
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+          margin-top: 0 !important;
+          padding: 0 2rem 0.2rem !important;
+          gap: 0 !important;
+        }
+        .sakthi-booking-item {
+          margin-bottom: -6rem !important;
+          gap: 20px !important;
+          min-width: 0 !important;
+        }
+        .sakthi-book-btn {
+          margin-top: 3rem !important;
+          padding: 8px 14px !important;
+          min-width: 90px !important;
+          font-size: 0.92rem !important;
+        }
+      }
     `}</style>
 
     <div className="sakthi-container">
