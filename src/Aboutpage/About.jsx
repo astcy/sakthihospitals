@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../Header";
 import Welcome from "./Welcome";
 import Vision from "./Vision";
+import Virtual from "./Virtual";
 import Footer from "../Footer";
 
 const globalStyle = `
@@ -50,7 +51,7 @@ const About = () => {
       <Header />
 <Welcome/>
 <Vision/>
-
+<Virtual/>
 
 
       <Footer/>

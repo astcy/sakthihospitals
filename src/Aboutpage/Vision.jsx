@@ -10,7 +10,6 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     minHeight: "100vh",
-    background: "linear-gradient(90deg, #eaf6ff 0%, #ffffff 100%)",
     padding: "40px 0",
     boxSizing: "border-box",
   },
