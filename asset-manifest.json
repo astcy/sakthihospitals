@@ -1,6 +1,7 @@
 {
   "files": {
-    "main.js": "/sakthihospitals/static/js/main.d1492013.js",
+    "main.js": "/sakthihospitals/static/js/main.eb2f6d32.js",
+    "static/media/mye.png": "/sakthihospitals/static/media/mye.08d45b654ea0ddb9a711.png",
     "static/media/first.png": "/sakthihospitals/static/media/first.afdebd6721ef464c6aab.png",
     "static/media/operation-room.jpg": "/sakthihospitals/static/media/operation-room.eba36e768d07fe01be4d.jpg",
     "static/media/doctor.png": "/sakthihospitals/static/media/doctor.959708317b7bce58c3d0.png",
@@ -10,6 +11,7 @@
     "static/media/glow.png": "/sakthihospitals/static/media/glow.e02efcf02fc38d2b3054.png",
     "static/media/post3.png": "/sakthihospitals/static/media/post3.73ccb92984783bd08c9d.png",
     "static/media/post2.png": "/sakthihospitals/static/media/post2.a3ef233396453630e7d4.png",
+    "static/media/back-stats.jpg": "/sakthihospitals/static/media/back-stats.adaa4c97382cb3fcea0e.jpg",
     "static/media/Doctor3.png": "/sakthihospitals/static/media/Doctor3.203ab7eef2f02063c052.png",
     "static/media/Hospital.png": "/sakthihospitals/static/media/Hospital.88750d14a7222572c82b.png",
     "static/media/Doctor3 .png": "/sakthihospitals/static/media/Doctor3 .93f720c9a118d0632482.png",
@@ -22,9 +24,9 @@
     "static/media/logo1.png": "/sakthihospitals/static/media/logo1.cb9d37cb02a684b246de.png",
     "static/media/logo (2).png": "/sakthihospitals/static/media/logo (2).ef4ab8ba2e4b793ba989.png",
     "index.html": "/sakthihospitals/index.html",
-    "main.d1492013.js.map": "/sakthihospitals/static/js/main.d1492013.js.map"
+    "main.eb2f6d32.js.map": "/sakthihospitals/static/js/main.eb2f6d32.js.map"
   },
   "entrypoints": [
-    "static/js/main.d1492013.js"
+    "static/js/main.eb2f6d32.js"
   ]
 }
