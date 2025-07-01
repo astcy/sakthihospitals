@@ -3,6 +3,7 @@ import Header from "../Header";
 import Welcome from "./Welcome";
 import Vision from "./Vision";
 import Virtual from "./Virtual";
+import Aboutexcel from "./Aboutexcel";
 import Footer from "../Footer";
 
 const globalStyle = `
@@ -52,7 +53,7 @@ const About = () => {
 <Welcome/>
 <Vision/>
 <Virtual/>
-
+<Aboutexcel/>
 
       <Footer/>
     </section>
