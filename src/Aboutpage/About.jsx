@@ -4,6 +4,9 @@ import Welcome from "./Welcome";
 import Vision from "./Vision";
 import Virtual from "./Virtual";
 import Aboutexcel from "./Aboutexcel";
+import Back from "./back";
+
+import ImgSection from "./img";
 import Footer from "../Footer";
 
 const globalStyle = `
@@ -54,6 +57,7 @@ const About = () => {
 <Vision/>
 <Virtual/>
 <Aboutexcel/>
+<Back/>
 
       <Footer/>
     </section>

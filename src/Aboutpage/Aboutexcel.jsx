@@ -63,8 +63,8 @@ const Aboutexcel = () => {
         style={{
           maxWidth: 1200,
           margin: "0 auto",
-          paddingLeft: 48,    // Increased margin from left
-          paddingRight: 48,   // Increased margin from right
+          paddingLeft: 48,
+          paddingRight: 48,
           display: "flex",
           alignItems: "flex-start",
           gap: `${GAP}px`,
@@ -86,9 +86,8 @@ const Aboutexcel = () => {
               fontSize: "1rem",
               letterSpacing: "1.5px",
               marginBottom: 10,
-                            marginTop: 50,
+              marginTop: 40,
               marginLeft: 18,
-
             }}
           >
             SERVICES
@@ -103,7 +102,6 @@ const Aboutexcel = () => {
               margin: 0,
               whiteSpace: "pre-line",
               marginLeft: 16,
-
             }}
           >
             Our Center of{"\n"}Excellence
@@ -120,7 +118,7 @@ const Aboutexcel = () => {
               gridTemplateColumns: "repeat(2, 1fr)",
               gridAutoRows: "1fr",
               gap: "15px",
-              marginBottom: "14px", // Reduced gap to second row
+              marginBottom: "14px",
               alignItems: "stretch",
             }}
           >
@@ -142,7 +140,7 @@ const Aboutexcel = () => {
               gridAutoRows: "1fr",
               gap: "15px",
               alignItems: "stretch",
-              marginLeft: `-${LEFT_COL_WIDTH + GAP - 16}px`, // Reduced gap for closer alignment
+              marginLeft: `-${LEFT_COL_WIDTH + GAP - 16}px`,
             }}
           >
             {cardData.slice(2).map((card, i) => (
@@ -180,11 +178,21 @@ const Aboutexcel = () => {
               flex: 1 1 100% !important;
               min-width: 0 !important;
             }
+            /* Center cards on small screens only */
             .card-grid-top,
             .card-grid-bottom {
-              grid-template-columns: 1fr !important;
+              display: flex !important;
+              flex-direction: column !important;
+              align-items: center !important;
+              justify-content: center !important;
+              grid-template-columns: none !important;
               gap: 16px !important;
               margin-left: 0 !important;
+            }
+            .card-grid-top > div,
+            .card-grid-bottom > div {
+              max-width: 340px !important;
+              width: 100% !important;
             }
           }
         `}
@@ -251,15 +259,24 @@ const Card = ({ id, title, description, onClick }) => {
         {title}
       </div>
 
-      {/* Description - Poppins font */}
+      {/* Description - Poppins font, 3-line clamp */}
       <div
         style={{
           fontFamily: "'Poppins', sans-serif",
-          fontSize: "0.96rem",
+          fontSize: "0.85rem",
           color: "#4a6c8b",
           flexGrow: 1,
-          lineHeight: 1.5,
+          lineHeight: 1.6,
           marginBottom: 16,
+          maxWidth: 320,
+          overflowWrap: "break-word",
+          wordBreak: "break-word",
+          whiteSpace: "normal",
+          display: "-webkit-box",
+          WebkitLineClamp: 3,
+          WebkitBoxOrient: "vertical",
+          overflow: "hidden",
+          textOverflow: "ellipsis",
         }}
       >
         {description}

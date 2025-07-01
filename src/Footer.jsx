@@ -34,7 +34,7 @@ const Footer = () => {
     gap: isMobile ? '18px' : '0',
     position: 'relative',
     zIndex: 2,
-    marginLeft: isMobile ? 0 : '160px',
+    marginLeft: isMobile ? 0 : '180px',
     boxSizing: 'border-box',
   };
 
@@ -137,8 +137,8 @@ const Footer = () => {
     margin: '0 auto',
     display: 'grid',
     gridTemplateColumns: isMobile ? '1fr' : '1.3fr 1fr 1fr 1fr',
-    gap: isMobile ? '32px' : '6rem',
-    paddingLeft: isMobile ? '0' : '40px',
+    gap: isMobile ? '32px' : '10rem',
+    paddingLeft: isMobile ? '0' : '70px',
     paddingRight: isMobile ? '0' : '40px',
     paddingTop: isMobile ? '0' : '2rem',
     alignItems: 'flex-start',

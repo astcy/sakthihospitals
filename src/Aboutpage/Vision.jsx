@@ -12,6 +12,7 @@ const styles = {
     minHeight: "100vh",
     padding: "40px 0",
     boxSizing: "border-box",
+          marginLeft: '60px', // <-- add this line
   },
   card: {
     display: "flex",

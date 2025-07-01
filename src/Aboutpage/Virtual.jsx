@@ -8,11 +8,13 @@ const Virtual = () => {
         minHeight: '100vh',
         background: 'linear-gradient(135deg, #f5fbff 0%, #fff 100%)',
         padding: '40px 0',
+            marginLeft: '25px', // <-- add this line
+
       }}
     >
       <div
         style={{
-          maxWidth: 1170,
+          maxWidth: 1140,
           margin: '0 auto',
           padding: '0 24px',
         }}
