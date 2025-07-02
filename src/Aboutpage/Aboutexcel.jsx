@@ -50,6 +50,7 @@ const Aboutexcel = () => {
 
   return (
     <div
+      className="about-excel-outer"
       style={{
         width: "100%",
         background: "linear-gradient(105deg,rgb(161, 198, 240) 0%,#b3d8f2 100%)",
@@ -168,15 +169,33 @@ const Aboutexcel = () => {
           }
 
           @media (max-width: 768px) {
+            .about-excel-outer {
+              padding-top: 0 !important;
+              padding-bottom: 40px !important;
+            }
             .about-excel-container {
               flex-direction: column !important;
               gap: 24px !important;
-              padding-left: 16px !important;
-              padding-right: 16px !important;
+              padding-left: 0 !important;
+              padding-right: 0 !important;
+              margin-left: auto !important;
+              margin-right: auto !important;
+              max-width: 420px !important;
+              width: 100% !important;
+              display: flex !important;
+              align-items: center !important;
+              justify-content: center !important;
             }
             .about-excel-left {
               flex: 1 1 100% !important;
               min-width: 0 !important;
+              margin: 0 auto 12px auto !important;
+              text-align: center !important;
+            }
+            .about-excel-left > div,
+            .about-excel-left > h2 {
+              margin-left: 0 !important;
+              text-align: center !important;
             }
             /* Center cards on small screens only */
             .card-grid-top,
@@ -188,6 +207,7 @@ const Aboutexcel = () => {
               grid-template-columns: none !important;
               gap: 16px !important;
               margin-left: 0 !important;
+              width: 100% !important;
             }
             .card-grid-top > div,
             .card-grid-bottom > div {

@@ -64,7 +64,7 @@ const Virtual = () => {
         {`
           @media (max-width: 600px) {
             .virtual-outer {
-              padding-bottom: 10px !important;
+              padding-bottom: 20px !important;
               min-height: unset !important;
             }
             .virtual-img-container {

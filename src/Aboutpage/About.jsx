@@ -5,7 +5,7 @@ import Vision from "./Vision";
 import Virtual from "./Virtual";
 import Aboutexcel from "./Aboutexcel";
 import Back from "./back";
-
+import Machine from "./Machine";
 import ImgSection from "./img";
 import Footer from "../Footer";
 
@@ -58,7 +58,7 @@ const About = () => {
 <Virtual/>
 <Aboutexcel/>
 <Back/>
-
+<Machine/>
       <Footer/>
     </section>
     );
