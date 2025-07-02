@@ -6,6 +6,7 @@ import Virtual from "./Virtual";
 import Aboutexcel from "./Aboutexcel";
 import Back from "./back";
 import Machine from "./Machine";
+import Award from "./Awards";
 import ImgSection from "./img";
 import Footer from "../Footer";
 
@@ -59,6 +60,8 @@ const About = () => {
 <Aboutexcel/>
 <Back/>
 <Machine/>
+<Award/>
+<ImgSection/>
       <Footer/>
     </section>
     );
