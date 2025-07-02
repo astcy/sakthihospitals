@@ -34,6 +34,7 @@ const Virtual = () => {
           360 Degree Virtual Tour
         </h1>
         <div
+          className="virtual-img-container"
           style={{
             borderRadius: '32px',
             overflow: 'hidden',
@@ -41,6 +42,7 @@ const Virtual = () => {
             background: '#fff',
             width: '100%',
             maxWidth: '100%',
+            transition: 'margin-left 0.2s',
           }}
         >
           <img
@@ -57,13 +59,18 @@ const Virtual = () => {
           />
         </div>
       </div>
-      {/* Responsive style to remove bottom space and minHeight on small screens */}
+      {/* Responsive style to move image left and remove bottom space/minHeight on small screens */}
       <style>
         {`
           @media (max-width: 600px) {
             .virtual-outer {
-              padding-bottom: 10 !important;
+              padding-bottom: 10px !important;
               min-height: unset !important;
+            }
+            .virtual-img-container {
+              margin-left: -14px !important;
+              width: calc(100% + 24px) !important;
+              border-radius: 24px !important;
             }
           }
         `}
