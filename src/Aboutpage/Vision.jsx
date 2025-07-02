@@ -12,7 +12,7 @@ const styles = {
     minHeight: "100vh",
     padding: "40px 0",
     boxSizing: "border-box",
-          marginLeft: '60px', // <-- add this line
+    marginLeft: "60px", // This will be removed on small screens
   },
   card: {
     display: "flex",
@@ -109,19 +109,26 @@ function Vision() {
   const width = useResponsive();
 
   // Responsive overrides for mobile only
+  let outerStyle = { ...styles.outer };
   let cardStyle = { ...styles.card };
   let imageBoxStyle = { ...styles.imageBox };
   let imageStyle = { ...styles.image };
   let titleStyle = { ...styles.title };
   let visionStyle = { ...styles.vision };
   let missionStyle = { ...styles.mission };
+  let textSectionStyle = { ...styles.textSection };
+  let missionListStyle = { ...styles.missionList };
 
   if (width < 768) {
-    // Mobile: show full image, stack vertically, no negative margin
+    // Remove left margin and add horizontal margin for mobile
+    outerStyle.marginLeft = 0;
+    outerStyle.marginRight = 0;
+    outerStyle.padding = "32px 8px";
+    outerStyle.justifyContent = "center";
     cardStyle.flexDirection = "column";
     cardStyle.alignItems = "center";
     cardStyle.gap = "24px";
-    cardStyle.padding = "0 8px";
+    cardStyle.padding = "0 0";
     imageBoxStyle.width = "100vw";
     imageBoxStyle.maxWidth = "420px";
     imageBoxStyle.height = "auto";
@@ -137,21 +144,26 @@ function Vision() {
     imageStyle.borderRadius = "20px";
     imageStyle.objectFit = "contain";
     titleStyle.fontSize = "1.3rem";
-    titleStyle.textAlign = "center";
+    titleStyle.textAlign = "left";      // left align title
     visionStyle.fontSize = "0.98rem";
     visionStyle.maxWidth = "100vw";
+    visionStyle.textAlign = "left";     // left align vision
     missionStyle.fontSize = "0.98rem";
     missionStyle.maxWidth = "100vw";
+    missionStyle.textAlign = "left";    // left align mission
+    textSectionStyle.alignItems = "flex-start";  // left align section
+    missionListStyle.textAlign = "left";         // left align list
+    missionListStyle.paddingLeft = 0;            // REMOVE left margin for small screen
+    missionListStyle.listStylePosition = "inside";
   }
-  // Tablet and desktop: keep original
 
   return (
-    <div style={styles.outer}>
+    <div style={outerStyle}>
       <div style={cardStyle}>
         <div style={imageBoxStyle}>
           <img src={doctorImage} alt="Doctor" style={imageStyle} />
         </div>
-        <section style={styles.textSection}>
+        <section style={textSectionStyle}>
           <h1 style={titleStyle}>Your Trusted Care Provider</h1>
           <div>
             <div style={styles.label}>Vision</div>
@@ -161,7 +173,7 @@ function Vision() {
           </div>
           <div>
             <div style={styles.label}>Mission</div>
-            <ol style={{ ...missionStyle, ...styles.missionList }}>
+            <ol style={{ ...missionStyle, ...missionListStyle }}>
               <li>To provide patient-centered medical care with excellence, empathy, and integrity.</li>
               <li>To empower communities through preventive health education and awareness.</li>
               <li>To uphold our legacy as a reliable health partner for families across generations.</li>

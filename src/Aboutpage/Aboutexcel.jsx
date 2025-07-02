@@ -50,6 +50,7 @@ const Aboutexcel = () => {
 
   return (
     <div
+      className="about-excel-outer"
       style={{
         width: "100%",
         background: "linear-gradient(105deg,rgb(161, 198, 240) 0%,#b3d8f2 100%)",
@@ -168,6 +169,10 @@ const Aboutexcel = () => {
           }
 
           @media (max-width: 768px) {
+            .about-excel-outer {
+              padding-top: 0 !important;
+              padding-bottom: 40px !important;
+            }
             .about-excel-container {
               flex-direction: column !important;
               gap: 24px !important;

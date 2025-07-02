@@ -4,12 +4,12 @@ import operationRoom from '../assets/operation-room.jpg'; // Update the path as 
 const Virtual = () => {
   return (
     <div
+      className="virtual-outer"
       style={{
         minHeight: '100vh',
         background: 'linear-gradient(135deg, #f5fbff 0%, #fff 100%)',
         padding: '40px 0',
-            marginLeft: '25px', // <-- add this line
-
+        marginLeft: '25px', // for large screens
       }}
     >
       <div
@@ -57,6 +57,17 @@ const Virtual = () => {
           />
         </div>
       </div>
+      {/* Responsive style to remove bottom space and minHeight on small screens */}
+      <style>
+        {`
+          @media (max-width: 600px) {
+            .virtual-outer {
+              padding-bottom: 10 !important;
+              min-height: unset !important;
+            }
+          }
+        `}
+      </style>
     </div>
   );
 };
