@@ -1,27 +1,27 @@
 import React from "react";
-import fallbackImage from "../assets/photoo.png"; // fallback if none passed
+import fallbackImage from "../assets/only-fallback.png"; // replace with your own fallback image
 
-const ImageOnlySection = ({
+const Only = ({
   src,
   alt = "Image",
-  radius = 24,
   style = {},
   className = "",
+  radius = 24,
   ...rest
 }) => {
   return (
     <div
-      className={`image-only-wrapper ${className}`}
+      className={`only-section-wrapper ${className}`}
       style={{
-        width: "129%",
-        maxWidth: "130%",
+        width: "150%",
+        maxWidth: "150%",
         borderRadius: radius,
         overflow: "hidden",
         boxShadow: "0 2px 12px rgba(41,64,94,0.09)",
-        marginLeft: "-170px",
+        marginLeft: "-300px",
         marginRight: "0",
-        marginTop: "120px",
-        marginBottom: "-290px",
+        marginTop: "180px",
+        marginBottom: "-400px",
         zIndex: 1,
         position: "relative",
         ...style,
@@ -43,18 +43,18 @@ const ImageOnlySection = ({
       <style>
         {`
           @media (max-width: 700px) {
-            .image-only-wrapper {
+            .only-section-wrapper {
               margin-left: auto !important;
               margin-right: auto !important;
               margin-top: 40px !important;
-              margin-bottom: -60px !important;
+              margin-bottom: -120px !important;
               max-width: 100vw !important;
               padding-left: 0 !important;
               padding-right: 0 !important;
               display: flex !important;
               justify-content: center !important;
             }
-            .image-only-wrapper img {
+            .only-section-wrapper img {
               width: 100% !important;
               max-width: 100vw !important;
             }
@@ -65,4 +65,4 @@ const ImageOnlySection = ({
   );
 };
 
-export default ImageOnlySection;
+export default Only;
