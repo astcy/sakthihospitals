@@ -45,7 +45,7 @@ const Aboutexcel = () => {
 
   // Handle card click navigation
   const handleCardClick = (serviceId) => {
-    navigate(`/service`);
+    navigate(`/specialties`);
   };
 
   return (
