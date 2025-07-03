@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/sakthihospitals/static/js/main.00a42386.js",
+    "main.js": "/sakthihospitals/static/js/main.3982c64f.js",
     "static/media/mye.png": "/sakthihospitals/static/media/mye.08d45b654ea0ddb9a711.png",
     "static/media/photoo.png": "/sakthihospitals/static/media/photoo.f3c323bb835a06318ea2.png",
     "static/media/first.png": "/sakthihospitals/static/media/first.afdebd6721ef464c6aab.png",
@@ -10,10 +10,12 @@
     "static/media/journey.png": "/sakthihospitals/static/media/journey.245ed6eb638061270fa3.png",
     "static/media/bgpattern.png": "/sakthihospitals/static/media/bgpattern.262a51d7b338edfe9856.png",
     "static/media/bloodtest.jpg": "/sakthihospitals/static/media/bloodtest.cf9a4c30f0853137c222.jpg",
+    "static/media/only1-fallback.png": "/sakthihospitals/static/media/only1-fallback.d9688c9626bec73e39ba.png",
     "static/media/camp.jpg": "/sakthihospitals/static/media/camp.e518f9613e7b8d1fae53.jpg",
     "static/media/glow.png": "/sakthihospitals/static/media/glow.e02efcf02fc38d2b3054.png",
     "static/media/post3.png": "/sakthihospitals/static/media/post3.73ccb92984783bd08c9d.png",
     "static/media/post2.png": "/sakthihospitals/static/media/post2.a3ef233396453630e7d4.png",
+    "static/media/only-fallback.png": "/sakthihospitals/static/media/only-fallback.274468700c3534253ff0.png",
     "static/media/back-stats.jpg": "/sakthihospitals/static/media/back-stats.adaa4c97382cb3fcea0e.jpg",
     "static/media/Doctor3.png": "/sakthihospitals/static/media/Doctor3.203ab7eef2f02063c052.png",
     "static/media/Hospital.png": "/sakthihospitals/static/media/Hospital.88750d14a7222572c82b.png",
@@ -30,9 +32,9 @@
     "static/media/logo1.png": "/sakthihospitals/static/media/logo1.cb9d37cb02a684b246de.png",
     "static/media/logo (2).png": "/sakthihospitals/static/media/logo (2).ef4ab8ba2e4b793ba989.png",
     "index.html": "/sakthihospitals/index.html",
-    "main.00a42386.js.map": "/sakthihospitals/static/js/main.00a42386.js.map"
+    "main.3982c64f.js.map": "/sakthihospitals/static/js/main.3982c64f.js.map"
   },
   "entrypoints": [
-    "static/js/main.00a42386.js"
+    "static/js/main.3982c64f.js"
   ]
 }
