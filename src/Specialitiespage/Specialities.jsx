@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../Header";
 import Heading from "./Heading";
 import Items from "./Item";
+import ImageText from "./imagetext";
 import Footer from "../Footer";
 
 
@@ -51,7 +52,7 @@ const Specialties = () => {
       <Header />
 <Heading/>
 <Items/>
-
+<ImageText/>
       <Footer/>
     </section>
     );
