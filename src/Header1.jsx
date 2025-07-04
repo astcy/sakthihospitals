@@ -68,7 +68,7 @@ const Header1 = () => {
             justifyContent: "space-between",
             flexWrap: "wrap",
             height: "70px",
-            padding: isTabletOrMobile ? "0 12px" : "0 24px",
+            padding: isTabletOrMobile ? "0 12px" : "0 44px",
             width: "100%",
             maxWidth: "1280px",
             margin: "0 auto",
@@ -80,7 +80,7 @@ const Header1 = () => {
             style={{
               display: "flex",
               alignItems: "center",
-              gap: isTabletOrMobile ? "24px" : "50px",
+              gap: isTabletOrMobile ? "24px" : "40px",
               flexWrap: "wrap",
               marginLeft: isTabletOrMobile ? "0px" : "-12px",
             }}
@@ -146,8 +146,8 @@ const Header1 = () => {
                 display: "flex",
                 alignItems: "center",
                 gap: "20px",
-                color: "#1a202c",
-                paddingRight: "90px",
+                color: "#274760",
+                paddingRight: "40px",
               }}
             >
               <button

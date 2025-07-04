@@ -1,27 +1,21 @@
 import React from "react";
-import doctorImg from "../assets/doctor.png";
-import bgPattern from "../assets/bgpattern.png";
-import glowImg from "../assets/glow.png";
+import pinkBg from "../assets/pinkBg.png"; // Pink background image
+import shape2 from "../assets/shape2.png"; // New image to show instead of doctor
 
 const styles = {
-main: {
-  minHeight: "100%",
-  background: "#fff",
-  fontFamily: "'Poppins', sans-serif",
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
-  padding: "24px 16px",
-
-  backgroundImage: `url(${bgPattern})`,
-  backgroundRepeat: "no-repeat",
-
-  // ✅ Limit to right side below doctor image
-  backgroundSize: "320px auto",                // Adjust width of the pattern
-  backgroundPosition: "calc(80% - 10px) 80%", // Right-aligned (10px from edge), bottom-aligned
-},
-
+  main: {
+    minHeight: "100%",
+    background: "#fff",
+    fontFamily: "'Poppins', sans-serif",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "24px 16px",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "320px auto",
+    backgroundPosition: "calc(80% - 10px) 80%",
+  },
   container: {
     display: "flex",
     flexDirection: "row",
@@ -77,7 +71,7 @@ main: {
     alignItems: "center",
     justifyContent: "center",
     gap: "6px",
-    background: "#307bc4",
+    background: "#f72585",
     color: "#fff",
     fontSize: "14px",
     fontWeight: 600,
@@ -102,25 +96,29 @@ main: {
     padding: "10px",
     borderRadius: "20px",
     backgroundColor: "none",
+    overflow: "visible",
   },
-  blueBg: {
-    position: "absolute",
-    bottom: "10px", // starts from bottom of image
-    left: "10px",   // aligned to left
-    width: "100%",
-    height: "auto",
-    zIndex: 0,
-    opacity: 0.6,
-    pointerEvents: "none",
-  },
-  doctorImg: {
+ pinkBg: {
+  position: "absolute",
+  marginTop: "70px",              // <-- anchor to top
+  left: "0",
+  width: "97%",
+  height: "82%",
+  zIndex: 0,
+  pointerEvents: "none",
+  objectFit: "content",
+  opacity: 0.95,
+  borderRadius: "20px",
+},
+
+  shape2: {
     position: "relative",
     borderRadius: "24px",
     width: "100%",
     height: "auto",
     maxHeight: "500px",
     objectFit: "cover",
-    zIndex: 1,
+    zIndex: 2,
   },
   '@media (max-width: 900px)': {
     container: {
@@ -132,10 +130,10 @@ main: {
       maxWidth: "100%",
       minHeight: "300px",
     },
-    doctorImg: {
+    shape2: {
       maxWidth: "250px",
     },
-    blueBg: {
+    pinkBg: {
         marginBottom:"10px",
       width: "64%",
       marginLeft: "70px",
@@ -145,7 +143,7 @@ main: {
   },
 };
 
-function Appointment() {
+function Appointment1() {
   const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 900);
 
   React.useEffect(() => {
@@ -158,21 +156,21 @@ function Appointment() {
     ? {
         container: { ...styles.container, ...styles['@media (max-width: 900px)'].container },
         imgSection: { ...styles.imgSection, ...styles['@media (max-width: 900px)'].imgSection },
-        doctorImg: { ...styles.doctorImg, ...styles['@media (max-width: 900px)'].doctorImg },
-        blueBg: { ...styles.blueBg, ...styles['@media (max-width: 900px)'].blueBg },
+        shape2: { ...styles.shape2, ...styles['@media (max-width: 900px)'].shape2 },
+        pinkBg: { ...styles.pinkBg, ...styles['@media (max-width: 900px)'].pinkBg },
       }
     : {
         container: styles.container,
         imgSection: styles.imgSection,
-        doctorImg: styles.doctorImg,
-        blueBg: styles.blueBg,
+        shape2: styles.shape2,
+        pinkBg: styles.pinkBg,
       };
 
   return (
     <main style={styles.main}>
       <div style={responsiveStyles.container}>
         <section style={styles.formSection}>
-          <p style={{ color: "#307bc4", fontWeight: 600, fontSize: "14px", marginBottom: "0", letterSpacing: "1px" }}>
+          <p style={{ color: "#f72585", fontWeight: 600, fontSize: "14px", marginBottom: "0", letterSpacing: "1px" }}>
             BOOK AN
           </p>
           <h1 style={{ fontSize: "32px", fontWeight: 500, color: "#0f172a", margin: "6px 0 28px", fontFamily: "'Figtree', sans-serif" }}>
@@ -250,12 +248,12 @@ function Appointment() {
           </form>
         </section>
         <section style={responsiveStyles.imgSection}>
-          <img src={glowImg} alt="Blue Glow" style={responsiveStyles.blueBg} />
-          <img src={doctorImg} alt="Doctor" style={responsiveStyles.doctorImg} draggable={false} />
+          <img src={pinkBg} alt="Pink Glow" style={responsiveStyles.pinkBg} />
+          <img src={shape2} alt="Shape" style={responsiveStyles.shape2} draggable={false} />
         </section>
       </div>
     </main>
   );
 }
 
-export default Appointment;
+export default Appointment1;

@@ -47,9 +47,10 @@ const styles = {
     borderBottom: "1px solid #F1F5F9",
     padding: "0 0 13px 0",
     fontFamily: "Poppins, sans-serif",
+        marginLeft:"0px",
   },
   container: {
-    maxWidth: 1070,
+    maxWidth: 1100,
     margin: "0 auto",
     padding: "80px 16px",
   },
