@@ -16,18 +16,18 @@ const items = [
 
 const buttonGroups = [
   { label: "All", value: "all" },
-  { label: "Emergency", value: "emergency" },
+  { label: "Urology", value: "urology" },
   { label: "Gynecology", value: "gyn" },
   { label: "Cardiology", value: "cardio" },
-  { label: "Psychiatry", value: "psychiatry" },
+  { label: "Orthopedics", value: "ortho" },
   { label: "Others", value: "others" },
 ];
 
 const othersSlugs = [
-  "ent", "diabetes", "gastro", "urology", "ortho", "pediatrics", "surgery",
+  "ent", "diabetes", "gastro", "pediatrics", "surgery",
 ];
 
-const mainSlugs = ["emergency", "cardio", "gyn", "psychiatry"];
+const mainSlugs = ["urology", "cardio", "gyn", "ortho"];
 
 // Responsive hook
 function useResponsive() {
@@ -47,7 +47,7 @@ const styles = {
     borderBottom: "1px solid #F1F5F9",
     padding: "0 0 13px 0",
     fontFamily: "Poppins, sans-serif",
-        marginLeft:"0px",
+    marginLeft: "0px",
   },
   container: {
     maxWidth: 1100,
@@ -230,12 +230,17 @@ export default function Bar({
     }
   }, [initialSlug]);
 
+  // UPDATED: When "others" is clicked, call onSelect with all othersSlugs
   const handleBtnClick = (val) => {
     setActive(val);
     setSearch("");
     setShowSuggestions(false);
     setHighlighted(-1);
-    onSelect(val);
+    if (val === "others") {
+      onSelect(othersSlugs);
+    } else {
+      onSelect(val);
+    }
   };
 
   const handleSearch = (e) => {
