@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import Header from "../Header";
-import Map from "./Map";
+import Header1 from "../Header1";
+import Bar1 from "../Bar1";
+import Facitem from "./Facitem";
+import ImageOnlySection from "../Specialitiespage/imagetext";
 import Footer from "../Footer";
 
 const globalStyle = `
@@ -30,9 +32,10 @@ const globalStyle = `
   }
 `;
 
-const Contact = () => {
+const Facilities = () => {
   // Default facility slug must match a key in your facilities object in Facitem.jsx
-  
+  const [activeFacility, setActiveFacility] = useState("emergency");
+
   return (
     <section
       style={{
@@ -49,11 +52,13 @@ const Contact = () => {
       <style>{globalStyle}</style>
 
       {/* Page Components */}
-      <Header />
-     <Map/>
+      <Header1 />
+      <Bar1 active={activeFacility} onSelect={setActiveFacility} />
+      <Facitem slug={activeFacility} />
+      <ImageOnlySection />
       <Footer />
     </section>
   );
 };
 
-export default Contact;
+export default Facilities;

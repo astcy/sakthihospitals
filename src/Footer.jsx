@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube } from 'react-icons/fa';
 import logo from './assets/logo_1.png';
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 900);
@@ -261,23 +262,25 @@ const Footer = () => {
           </div>
           {/* Links */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-            <a href="#" style={linkStyle}>About Us</a>
-            <a href="#" style={linkStyle}>Departments</a>
-            <a href="#" style={linkStyle}>Doctors</a>
-            <a href="#" style={linkStyle}>Timetable</a>
-            <a href="#" style={linkStyle}>Appointment</a>
+           <Link to="/about" style={linkStyle}>About Us</Link>
+<Link to="/departments" style={linkStyle}>Departments</Link>
+<Link to="/doctors" style={linkStyle}>Doctors</Link>
+<Link to="/timetable" style={linkStyle}>Timetable</Link>
+<Link to="/appointment" style={linkStyle}>Appointment</Link>
+
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-            <a href="#" style={linkStyle}>Testimonials</a>
-            <a href="#" style={linkStyle}>Blog</a>
-            <a href="#" style={linkStyle}>Contact Us</a>
-            <a href="#" style={linkStyle}>FAQs</a>
+           <Link to="/testimonials" style={linkStyle}>Testimonials</Link>
+<Link to="/blog" style={linkStyle}>Blog</Link>
+<Link to="/contact" style={linkStyle}>Contact Us</Link>
+<Link to="/faqs" style={linkStyle}>FAQs</Link>
+
           </div>
           {/* Legal + Social */}
           <div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              <a href="#" style={linkStyle}>Privacy Policy</a>
-              <a href="#" style={linkStyle}>Terms and Conditions</a>
+             <Link to="/privacy" style={linkStyle}>Privacy Policy</Link>
+<Link to="/terms" style={linkStyle}>Terms and Conditions</Link>
             </div>
             <div>
               <p style={{ fontSize: '12px', marginTop: '2rem', marginBottom: '0.5rem', fontFamily: poppins }}>Follow Us</p>
