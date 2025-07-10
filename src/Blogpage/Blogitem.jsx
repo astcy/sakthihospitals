@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookF, faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons";
 
-// Import your images from the assets folder
 import img1 from "../assets/blog1.jpg";
 import img2 from "../assets/blog2.jpg";
 import img3 from "../assets/blog3.jpg";
@@ -15,7 +14,6 @@ import img8 from "../assets/blog8.jpg";
 import img9 from "../assets/blog9.jpg";
 import img10 from "../assets/blog10.jpg";
 
-// Sample data with image property
 const blogItems = [
   {
     id: 1,
@@ -126,8 +124,7 @@ const Blogitem = ({ selectedCategory = "all", viewMode = "grid" }) => {
 
   const gridStyle = {
     display: "grid",
-    gridTemplateColumns:
-      viewMode === "grid" ? "repeat(auto-fill, minmax(300px, 1fr))" : "1fr",
+    gridTemplateColumns: viewMode === "grid" ? "repeat(auto-fill, minmax(300px, 1fr))" : "1fr",
     gap: "10px",
   };
 
@@ -139,18 +136,20 @@ const Blogitem = ({ selectedCategory = "all", viewMode = "grid" }) => {
     boxShadow: "0 2px 6px rgba(0, 0, 0, 0.06)",
     display: "flex",
     flexDirection: viewMode === "grid" ? "column" : "row",
-    gap: "16px",
-    alignItems: viewMode === "grid" ? "stretch" : "center",
+    gap: viewMode === "grid" ? "16px" : "0",
+    alignItems: viewMode === "grid" ? "stretch" : "flex-start",
     transition: "all 0.3s ease",
     cursor: "pointer",
     transform: "translateY(0)",
+    overflow: "hidden",
   };
 
   const imageContainerStyle = {
-    width: "100%",
-    height: "200px",
-    borderRadius: "14px 14px 0 0",
+    width: viewMode === "grid" ? "100%" : "250px",
+    height: viewMode === "grid" ? "200px" : "160px",
+    borderRadius: viewMode === "grid" ? "14px 14px 0 0" : "14px 0 0 14px",
     overflow: "hidden",
+    flexShrink: 0,
   };
 
   const imageStyle = {
@@ -165,6 +164,8 @@ const Blogitem = ({ selectedCategory = "all", viewMode = "grid" }) => {
     flex: 1,
     display: "flex",
     flexDirection: "column",
+    justifyContent: "center",
+    padding: viewMode === "grid" ? "0" : "12px",
   };
 
   const metaStyle = {
@@ -224,12 +225,10 @@ const Blogitem = ({ selectedCategory = "all", viewMode = "grid" }) => {
     fontWeight: 500,
   });
 
-  // Handle card click
   const handleCardClick = (id) => {
     navigate(`/blogdetails/${id}`);
   };
 
-  // Social icon click handlers
   const handleIconClick = (e, url) => {
     e.stopPropagation();
     window.open(url, "_blank", "noopener,noreferrer");
@@ -248,57 +247,24 @@ const Blogitem = ({ selectedCategory = "all", viewMode = "grid" }) => {
               onClick={() => handleCardClick(item.id)}
               style={{
                 ...cardStyle,
-                boxShadow: isHovered
-                  ? "0 12px 24px rgba(0, 0, 0, 0.12)"
-                  : cardStyle.boxShadow,
+                boxShadow: isHovered ? "0 12px 24px rgba(0, 0, 0, 0.12)" : cardStyle.boxShadow,
                 transform: isHovered ? "translateY(-6px)" : "translateY(0)",
               }}
             >
               <div style={imageContainerStyle}>
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  style={imageStyle}
-                />
+                <img src={item.image} alt={item.title} style={imageStyle} />
               </div>
               <div style={contentStyle}>
                 <div style={metaStyle}>
                   <span>{item.date}</span>
                   <div style={iconStyle}>
-                    <span
-                      style={{ cursor: "pointer" }}
-                      onClick={(e) =>
-                        handleIconClick(
-                          e,
-                          "https://www.facebook.com/sakthihospitals/"
-                        )
-                      }
-                      title="Facebook"
-                    >
+                    <span onClick={(e) => handleIconClick(e, "https://www.facebook.com/sakthihospitals/")} title="Facebook">
                       <FontAwesomeIcon icon={faFacebookF} />
                     </span>
-                    <span
-                      style={{ cursor: "pointer" }}
-                      onClick={(e) =>
-                        handleIconClick(
-                          e,
-                          "https://www.instagram.com/sakthihospitals/"
-                        )
-                      }
-                      title="Instagram"
-                    >
+                    <span onClick={(e) => handleIconClick(e, "https://www.instagram.com/sakthihospitals/")} title="Instagram">
                       <FontAwesomeIcon icon={faInstagram} />
                     </span>
-                    <span
-                      style={{ cursor: "pointer" }}
-                      onClick={(e) =>
-                        handleIconClick(
-                          e,
-                          "https://twitter.com/sakthihospital"
-                        )
-                      }
-                      title="Twitter"
-                    >
+                    <span onClick={(e) => handleIconClick(e, "https://twitter.com/sakthihospital")} title="Twitter">
                       <FontAwesomeIcon icon={faTwitter} />
                     </span>
                   </div>

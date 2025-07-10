@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTh, faList } from "@fortawesome/free-solid-svg-icons";
 
@@ -6,6 +7,7 @@ const Blogbar = ({ onSelect, onViewChange }) => {
   const [active, setActive] = useState("All");
   const [viewMode, setViewMode] = useState("grid");
   const [hovered, setHovered] = useState(null);
+  const navigate = useNavigate();
 
   const categories = [
     "All",
@@ -25,9 +27,17 @@ const Blogbar = ({ onSelect, onViewChange }) => {
 
   const breadcrumbStyle = {
     fontSize: "12px",
-    color: "#a5b3be",
+    color: "#aebac3",
     fontFamily: "Poppins, sans-serif",
     marginBottom: "4px",
+    display: "flex",
+    gap: "4px",
+    flexWrap: "wrap",
+  };
+
+  const breadcrumbLink = {
+    color: "#aebac3",
+    cursor: "pointer",
   };
 
   const titleStyle = {
@@ -104,7 +114,14 @@ const Blogbar = ({ onSelect, onViewChange }) => {
 
   return (
     <div style={containerStyle}>
-      <div style={breadcrumbStyle}>Home / Blog / Read</div>
+      <div style={breadcrumbStyle}>
+        <span style={breadcrumbLink} onClick={() => navigate("/")}>Home</span>
+        <span>/</span>
+        <span style={breadcrumbLink} onClick={() => navigate("/blogs")}>Blog</span>
+        <span>/</span>
+        <span style={breadcrumbLink} onClick={() => navigate("/blogdetails")}>Read</span>
+      </div>
+
       <h1 style={titleStyle}>Psychology and Life Style</h1>
 
       <div style={barStyle}>
