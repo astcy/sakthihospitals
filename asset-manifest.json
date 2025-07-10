@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/sakthihospitals/static/js/main.430f5c74.js",
+    "main.js": "/sakthihospitals/static/js/main.400f8fa6.js",
     "static/media/mye.png": "/sakthihospitals/static/media/mye.08d45b654ea0ddb9a711.png",
     "static/media/photoo.png": "/sakthihospitals/static/media/photoo.f3c323bb835a06318ea2.png",
     "static/media/first.png": "/sakthihospitals/static/media/first.afdebd6721ef464c6aab.png",
@@ -25,20 +25,30 @@
     "static/media/lab.jpg": "/sakthihospitals/static/media/lab.fdc045b1638561fdf725.jpg",
     "static/media/Doctor2.png": "/sakthihospitals/static/media/Doctor2.02c99ea3512575e07dae.png",
     "static/media/post1.png": "/sakthihospitals/static/media/post1.9bfa65afce5a93edeefd.png",
+    "static/media/blog1.jpg": "/sakthihospitals/static/media/blog1.577af8222bbed4aa9cdc.jpg",
     "static/media/ctscan.jpg": "/sakthihospitals/static/media/ctscan.f551079c005833b77ba7.jpg",
     "static/media/ultrasound.jpg": "/sakthihospitals/static/media/ultrasound.e566bdeeb73bf0f330d8.jpg",
     "static/media/Elements.png": "/sakthihospitals/static/media/Elements.d85fd6e36a3a61990ae5.png",
     "static/media/logo2.png": "/sakthihospitals/static/media/logo2.9c1aef03197c0aa4f7be.png",
     "static/media/overlayIcon.png": "/sakthihospitals/static/media/overlayIcon.85f9b17ecdc071f0a714.png",
     "static/media/shield-logo.png": "/sakthihospitals/static/media/shield-logo.85f9b17ecdc071f0a714.png",
+    "static/media/blog4.jpg": "/sakthihospitals/static/media/blog4.92825a499f439c1b1399.jpg",
+    "static/media/blog8.jpg": "/sakthihospitals/static/media/blog8.219a9f267a96a5ad0360.jpg",
     "static/media/logo1.png": "/sakthihospitals/static/media/logo1.cb9d37cb02a684b246de.png",
+    "static/media/blog6.jpg": "/sakthihospitals/static/media/blog6.68e17e26cfd5112b5ce2.jpg",
+    "static/media/blog5.jpg": "/sakthihospitals/static/media/blog5.d962eb23483b78321911.jpg",
+    "static/media/blog7.jpg": "/sakthihospitals/static/media/blog7.9d4fc68cd9f6d099578d.jpg",
+    "static/media/blog9.jpg": "/sakthihospitals/static/media/blog9.81a838bd8995634e5727.jpg",
+    "static/media/blog2.jpg": "/sakthihospitals/static/media/blog2.768c292923c32d968560.jpg",
+    "static/media/blog3.jpg": "/sakthihospitals/static/media/blog3.f944bbba68747637fab9.jpg",
     "static/media/doctor5.png": "/sakthihospitals/static/media/doctor5.75a472479d4bc01b59c2.png",
+    "static/media/blog10.jpg": "/sakthihospitals/static/media/blog10.99cff4dd0f06dc1b7ed4.jpg",
     "static/media/doctor4.png": "/sakthihospitals/static/media/doctor4.0301163c4c949000b75c.png",
     "static/media/logo (2).png": "/sakthihospitals/static/media/logo (2).ef4ab8ba2e4b793ba989.png",
     "index.html": "/sakthihospitals/index.html",
-    "main.430f5c74.js.map": "/sakthihospitals/static/js/main.430f5c74.js.map"
+    "main.400f8fa6.js.map": "/sakthihospitals/static/js/main.400f8fa6.js.map"
   },
   "entrypoints": [
-    "static/js/main.430f5c74.js"
+    "static/js/main.400f8fa6.js"
   ]
 }
