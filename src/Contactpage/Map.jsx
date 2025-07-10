@@ -106,13 +106,13 @@ export default function Map() {
               fontSize: 22,
             }}
           >
-            <img src={emailIcon} alt="Email Icon" style={{ width: 22, height: 22 }} />
+            <img src={emailIcon} alt="Email Icon" style={{ width: 42, height: 42 }} />
           </span>
           <div>
-            <div style={{ fontWeight: 600, fontSize: 16, color: '#1e293b', fontFamily: "'Poppins', sans-serif" }}>
+            <div style={{ fontWeight: 600, fontSize: 14, color: '#33526a', fontFamily: "'Poppins', sans-serif" }}>
               Email
             </div>
-            <div style={{ fontSize: 14, color: '#334155', marginTop: 2, fontFamily: "'Figtree', sans-serif" }}>
+            <div style={{ fontSize: 12, color: '#33526a', marginTop: 2, fontFamily: "'Figtree', sans-serif" }}>
               hello@sakthihospitals.com
             </div>
           </div>
@@ -143,13 +143,13 @@ export default function Map() {
               fontSize: 22,
             }}
           >
-            <img src={locationIcon} alt="Location Icon" style={{ width: 22, height: 22 }} />
+            <img src={locationIcon} alt="Location Icon" style={{ width: 42, height: 42 }} />
           </span>
           <div>
-            <div style={{ fontWeight: 600, fontSize: 16, color: '#1e293b', fontFamily: "'Poppins', sans-serif" }}>
+            <div style={{ fontWeight: 600, fontSize: 14, color: '#33526a', fontFamily: "'Poppins', sans-serif" }}>
               Location
             </div>
-            <div style={{ fontSize: 14, color: '#334155', marginTop: 2, fontFamily: "'Figtree', sans-serif" }}>
+            <div style={{ fontSize: 12, color: '#33526a', marginTop: 2, fontFamily: "'Figtree', sans-serif" }}>
               175 Big St, Police Quarters, Triplicane, Chennai, TN 600005
             </div>
           </div>

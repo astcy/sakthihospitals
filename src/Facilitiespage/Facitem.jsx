@@ -3,7 +3,6 @@ import gynMainImage from "../assets/your-main-image.png";
 import doc4 from "../assets/doctor4.png";
 import doc5 from "../assets/doctor5.png";
 
-
 // Common paragraph style
 const commonParagraphStyle = {
   fontSize: 13,
@@ -54,14 +53,142 @@ const facilities = {
           "Pediatric Emergency",
         ],
       },
+    ],
+  },
+  lab: {
+    title: "LABORATORY SERVICES",
+    heading: "Our labs are equipped to carry out a wide range of laboratory investigations, necessary for patient care. It consists of the disciplines of",
+    image: gynMainImage,
+    doctors: [
       {
-        title: "Critical Care Facilities",
+        name: "Dr. Emergency Expert",
+        title: "Head of Emergency Medicine",
+        image: doc4,
+        bg: "#c2e9fb",
+      },
+      {
+        name: "Dr. Trauma Specialist",
+        title: "Senior Consultant – Trauma Care",
+        image: doc5,
+        bg: "#fbe6a2",
+      },
+    ],
+    lists: [
+      {
+        title: "Lab Services",
         items: [
-          "Dedicated Intensive Care Units (ICU)",
-          "Ventilator Support",
-          "24/7 Laboratory & Imaging",
-          "Rapid Response Team",
+          " Hematology ",
+          "Biochemistry  ",
+          "Microbiology  ",
+          "Histopathology  ",
+          "Endocrinology  ",
+          "Serology  ",
+          "Clinical Pathology  ",
         ],
+      },
+    ],
+    paragraph: (
+      <>
+        <p style={commonParagraphStyle}>
+          The laboratory is equipped with state-of-the-art equipments. To operate these sophisticated equipments in the laboratory, we have a team of efficient, knowledgeable and qualified doctors and technical staff who are constantly involved in producing correct results and quality assurance.
+        </p>
+      </>
+    ),
+  },
+  pha: {
+    title: " PHARMACY ",
+    image: gynMainImage,
+    doctors: [
+      {
+        name: "Dr. Emergency Expert",
+        title: "Head of Emergency Medicine",
+        image: doc4,
+        bg: "#c2e9fb",
+      },
+      {
+        name: "Dr. Trauma Specialist",
+        title: "Senior Consultant – Trauma Care",
+        image: doc5,
+        bg: "#fbe6a2",
+      },
+    ],
+    paragraph: (
+      <>
+        <p style={commonParagraphStyle}>
+          At Sakthi Hospital, the Pharmacy stocks all medicines in the range of research molecules, high value medicines, high risk medicines, life saving drugs, critical care drugs and oncology special drugs as per schedule. Quality standards are strictly maintained. Round-the-clock service is available and is manned by experienced pharmacists. Both inpatient and outpatients are catered to.
+        </p>
+      </>
+    ),
+  },
+  dia: {
+    title: " Dialysis ",
+    image: gynMainImage,
+    doctors: [
+      {
+        name: "Dr. Emergency Expert",
+        title: "Head of Emergency Medicine",
+        image: doc4,
+        bg: "#c2e9fb",
+      },
+      {
+        name: "Dr. Trauma Specialist",
+        title: "Senior Consultant – Trauma Care",
+        image: doc5,
+        bg: "#fbe6a2",
+      },
+    ],
+    paragraph: (
+      <>
+        <p style={commonParagraphStyle}>
+          Dialysis is a medical treatment that is used to replace some of the functions of the kidneys when they are no longer able to function properly.
+          There are two main types of dialysis: hemodialysis and peritoneal dialysis. Hemodialysis is a process where a machine is used to filter the blood outside of the body, while peritoneal dialysis involves using the lining of the abdomen to filter the blood.
+        </p>
+        <p style={commonParagraphStyle}>
+          Dialysis is usually required when a patient has end-stage renal disease (ESRD), which is the final stage of chronic kidney disease. ESRD is a serious condition that can cause a range of symptoms, including fatigue, weakness, shortness of breath, and nausea.
+          Dialysis helps to remove waste products and excess fluid from the blood that the kidneys are no longer able to remove. This helps to improve a patient’s quality of life and prevent complications of kidney disease.
+        </p>
+        <p style={commonParagraphStyle}>
+          Patients who undergo dialysis will need to continue with the treatment for the rest of their lives, unless they are able to receive a kidney transplant.
+          Dialysis can be a demanding treatment, requiring frequent visits to a healthcare provider and lifestyle changes. Patients may need to follow a special diet and limit their fluid intake.
+        </p>
+        <p style={commonParagraphStyle}>
+          Patients who undergo dialysis may experience some side effects, such as low blood pressure, muscle cramps, and infection. It is important to report any side effects to your healthcare provider.
+          Caregivers play an important role in supporting patients undergoing dialysis. They may need to help with transportation to and from dialysis appointments, provide emotional support, and help with daily activities.
+        </p>
+        <p style={commonParagraphStyle}>
+          It is important for patients and caregivers to work closely with their healthcare provider to develop a treatment plan that is tailored to their individual needs. With proper care and management, dialysis can help to improve a patient’s health and well-being, and allow them to continue living their life to the fullest.
+        </p>
+        <p style={commonParagraphStyle}>
+          By understanding the basics of dialysis, patients and caregivers can be better equipped to manage the treatment and achieve the best possible outcomes.
+        </p>
+      </>
+    ),
+  },
+  oper: {
+    title: "OPERATION THEATRE",
+    paragraph: (
+      <>
+        <p style={commonParagraphStyle}>
+          Our Theatre complex comprises 2 spacious, well-designed major operating theatres and a post-op recovery room. The OTs have been equipped with the latest medical technology, sparing no expense to ensure optimal results for the patient.
+        </p>
+        <p style={commonParagraphStyle}>
+          The facilities includes Laminar flow, Hepa filter, Modern Anaesthesia Workstation, OT Table, Operating Microscope, Laparoscopic, Hysteroscopic and Colposcopic equipment.
+        </p>
+      </>
+    ),
+    image: gynMainImage,
+    doctors: [
+      {
+        name: "Dr. Emergency Expert",
+        title: "Head of Emergency Medicine",
+        image: doc4,
+        bg: "#c2e9fb",
+      },
+      {
+        name: "Dr. Trauma Specialist",
+        title: "Senior Consultant – Trauma Care",
+        image: doc5,
+        bg: "#fbe6a2",
       },
     ],
   },
@@ -83,6 +210,7 @@ const responsiveStyles = `
 .sakthi-image-doctor-wrapper {
   position: relative;
   min-width: 320px;
+  min-height: 320px;
 }
 .sakthi-main-image {
   width: 320px;
@@ -95,13 +223,13 @@ const responsiveStyles = `
 .sakthi-doctor-card {
   position: absolute;
   right: 200px;
-  bottom: 140px;
+  top: 204px;
   background: #fff;
   border-radius: 20px;
   padding: 24px;
-  width: 340px;
+  width: 300px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.09);
-  margin-bottom: -122px;
+  z-index: 10;
 }
 @media (max-width: 1200px) {
   .sakthi-main-grid {
@@ -162,12 +290,15 @@ function useInjectStyles() {
 }
 
 const FacilityDetail = ({ data }) => {
+  // All list items and headings start from the same left edge as the title
+  const leftAlign = { marginLeft: 0, paddingLeft: 0, listStylePosition: "inside" };
+
   return (
-    <div style={{ padding: "60px 20px", fontFamily: "Poppin, sans-serif" }}>
+    <div style={{ padding: "60px 20px", fontFamily: "Poppins, sans-serif" }}>
       <div className="sakthi-main-grid">
         {/* Main Content */}
         <div>
-          <h1 style={{ fontSize: 40, color: "#f5007e", fontWeight: 600 }}>
+          <h1 style={{ fontSize: 40, color: "#f5007e", fontWeight: 600, ...leftAlign }}>
             {data.title}
           </h1>
           {data.heading && (
@@ -177,12 +308,13 @@ const FacilityDetail = ({ data }) => {
                 fontWeight: 500,
                 color: "#2a3a4d",
                 marginTop: 24,
+                ...leftAlign,
               }}
             >
               {data.heading}
             </h2>
           )}
-          {data.paragraph}
+          <div style={leftAlign}>{data.paragraph}</div>
         </div>
 
         {/* Image & Doctors */}
@@ -201,9 +333,7 @@ const FacilityDetail = ({ data }) => {
               }}
             >
               <div>
-                <div
-                  style={{ fontWeight: 700, fontSize: 20, color: "#2a3a4d" }}
-                >
+                <div style={{ fontWeight: 700, fontSize: 20, color: "#2a3a4d" }}>
                   Available Doctor
                 </div>
                 <div style={{ fontSize: 11, color: "#7a8ba6" }}>Select Doctor</div>
@@ -273,8 +403,10 @@ const FacilityDetail = ({ data }) => {
             <div>
               {data.lists[0] && (
                 <>
-                  <h3 style={{ color: "#f5007e", marginBottom: 6 }}>{data.lists[0].title}</h3>
-                  <ul style={{ fontSize: 13, color: "#2a3a4d", marginLeft: 18 }}>
+                  <h3 style={{ color: "#f5007e", marginBottom: 6, ...leftAlign }}>
+                    {data.lists[0].title}
+                  </h3>
+                  <ul style={{ fontSize: 13, color: "#2a3a4d", ...leftAlign }}>
                     {data.lists[0].items.map((item, i) => (
                       <li key={i}>{item}</li>
                     ))}
@@ -283,8 +415,10 @@ const FacilityDetail = ({ data }) => {
               )}
               {data.lists[2] && (
                 <>
-                  <h3 style={{ color: "#f5007e", marginTop: 20 }}>{data.lists[2].title}</h3>
-                  <ul style={{ fontSize: 13, color: "#2a3a4d", marginLeft: 18 }}>
+                  <h3 style={{ color: "#f5007e", marginTop: 20, ...leftAlign }}>
+                    {data.lists[2].title}
+                  </h3>
+                  <ul style={{ fontSize: 13, color: "#2a3a4d", ...leftAlign }}>
                     {data.lists[2].items.map((item, i) => (
                       <li key={i}>{item}</li>
                     ))}
@@ -295,8 +429,10 @@ const FacilityDetail = ({ data }) => {
             <div>
               {data.lists[1] && (
                 <>
-                  <h3 style={{ color: "#f5007e", marginBottom: 6 }}>{data.lists[1].title}</h3>
-                  <ul style={{ fontSize: 13, color: "#2a3a4d", marginLeft: 18 }}>
+                  <h3 style={{ color: "#f5007e", marginBottom: 6, ...leftAlign }}>
+                    {data.lists[1].title}
+                  </h3>
+                  <ul style={{ fontSize: 13, color: "#2a3a4d", ...leftAlign }}>
                     {data.lists[1].items.map((item, i) => (
                       <li key={i}>{item}</li>
                     ))}
@@ -305,8 +441,10 @@ const FacilityDetail = ({ data }) => {
               )}
               {data.lists[3] && (
                 <>
-                  <h3 style={{ color: "#f5007e", marginTop: 20 }}>{data.lists[3].title}</h3>
-                  <ul style={{ fontSize: 13, color: "#2a3a4d", marginLeft: 18 }}>
+                  <h3 style={{ color: "#f5007e", marginTop: 20, ...leftAlign }}>
+                    {data.lists[3].title}
+                  </h3>
+                  <ul style={{ fontSize: 13, color: "#2a3a4d", ...leftAlign }}>
                     {data.lists[3].items.map((item, i) => (
                       <li key={i}>{item}</li>
                     ))}

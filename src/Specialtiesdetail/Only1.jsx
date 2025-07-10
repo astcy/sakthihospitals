@@ -1,7 +1,7 @@
 import React from "react";
 import fallbackImage from "../assets/only1-fallback.png"; // Replace with your own fallback image
 
-const Only1 = ({
+const only1 = ({
   src,
   alt = "Image",
   style = {},
@@ -65,4 +65,4 @@ const Only1 = ({
   );
 };
 
-export default Only1;
+export default only1;

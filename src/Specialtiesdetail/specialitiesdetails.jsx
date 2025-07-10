@@ -8,7 +8,6 @@ import Appointment1 from "./Appointment1";
 import Only from "./Only";
 import Only1 from "./Only1";
 import Footer1 from "../Footer1";
-
 const globalStyle = `
   * { box-sizing: border-box; }
   html, body {
@@ -55,7 +54,7 @@ const Specialitiesdetails = () => {
       <Appointment1 />
       <Only1 />
       <Only />
-      <Footer1 />
+<Footer1/>
     </section>
   );
 };

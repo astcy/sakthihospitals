@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import Header from "../Header";
-import Common from "../Common";
-import ContactForm from "./Contactform";
-import Map from "./Map";
+import Blogbar from "./Blogbar";
+import Blogitem from "./Blogitem";
 import Footer from "../Footer";
 
 const globalStyle = `
@@ -32,9 +31,10 @@ const globalStyle = `
   }
 `;
 
-const Contact = () => {
-  // Default facility slug must match a key in your facilities object in Facitem.jsx
-  
+const Blog = () => {
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [viewMode, setViewMode] = useState("grid"); // ✅ Track grid/list toggle
+
   return (
     <section
       style={{
@@ -50,14 +50,13 @@ const Contact = () => {
     >
       <style>{globalStyle}</style>
 
-      {/* Page Components */}
+      {/* Page Sections */}
       <Header />
-      <Common/>
-      <ContactForm/>
-     <Map/>
+      <Blogbar onSelect={setSelectedCategory} onViewChange={setViewMode} /> {/* ✅ Pass onViewChange */}
+      <Blogitem selectedCategory={selectedCategory} viewMode={viewMode} /> {/* ✅ Pass viewMode */}
       <Footer />
     </section>
   );
 };
 
-export default Contact;
+export default Blog;

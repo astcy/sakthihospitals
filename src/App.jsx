@@ -7,6 +7,7 @@ import Specialties from "./Specialitiespage/Specialities";
 import Specialitiesdetails from "./Specialtiesdetail/specialitiesdetails";
 import Facilities from "./Facilitiespage/Facilities";
 import Contact from "./Contactpage/Contact";
+import Blog from "./Blogpage/Blog";
 const App = () => {
   return (
     <HashRouter>
@@ -18,6 +19,7 @@ const App = () => {
 <Route path="/facilities" element={<Facilities />} />
         {/* Add more routes if needed */}
         <Route path ="/contact" element={<Contact/>} />
+        <Route path ="/blogs" element={<Blog/>} />
       </Routes>
     </HashRouter>
   );

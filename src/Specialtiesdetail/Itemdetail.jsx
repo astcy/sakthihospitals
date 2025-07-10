@@ -3,6 +3,126 @@ import gynMainImage from "../assets/your-main-image.png";
 import doc4 from "../assets/doctor4.png";
 import doc5 from "../assets/doctor5.png";
 
+// Inject responsive styles only once
+const responsiveStyles = `
+.sakthi-main-grid {
+  display: grid;
+  grid-template-columns: 50% 40%;
+  gap: 32px 200px;
+  max-width: 1100px;
+  margin: auto;
+  margin-top: -120px;
+  margin-left: 80px;
+  box-sizing: border-box;
+}
+.sakthi-image-doctor-wrapper {
+  position: relative;
+  width: 340px;
+  height: 320px;
+  margin-top: 40px;
+}
+.sakthi-main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: 0 6px 32px rgba(0,0,0,0.08);
+  background: #fff;
+}
+.sakthi-doctor-card {
+  position: absolute;
+  right: 150px;
+  bottom: -60px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px;
+  width: 300px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.09);
+  z-index: 10;
+}
+@media (max-width: 1200px) {
+  .sakthi-main-grid {
+    grid-template-columns: 1fr;
+    gap: 32px 0;
+    margin-left: 0;
+    max-width: 100vw;
+  }
+  .sakthi-image-doctor-wrapper {
+    min-width: 0;
+    width: 100%;
+    margin-bottom: 32px;
+  }
+  .sakthi-main-image {
+    width: 100%;
+    max-width: 340px;
+    height: 220px;
+    margin: 0 auto;
+    display: block;
+  }
+  .sakthi-doctor-card {
+    position: static;
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto 0 auto;
+  }
+}
+@media (max-width: 700px) {
+  .sakthi-main-grid {
+    grid-template-columns: 1fr;
+    gap: 24px 0;
+    padding: 0 4vw;
+    margin-top: 0;
+    max-width: 92vw;
+  }
+  .sakthi-main-image {
+    width: 100%;
+    height: 160px;
+    border-radius: 14px;
+  }
+  .sakthi-doctor-card {
+    padding: 12px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 100%;
+  }
+  .sakthi-inner-section {
+    padding: 0 0;
+    max-width: 100vw;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 0;
+  }
+  .sakthi-inner-section h1,
+  .sakthi-inner-section h2,
+  .sakthi-inner-section h3 {
+    font-size: 18px !important;
+    text-align: left !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+  .sakthi-inner-section p,
+  .sakthi-inner-section ul {
+    font-size: 12px !important;
+    line-height: 1.5;
+    text-align: left !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    list-style-position: inside !important;
+  }
+}
+`;
+
+function useInjectStyles() {
+  React.useEffect(() => {
+    if (!document.getElementById("sakthi-responsive-styles")) {
+      const style = document.createElement("style");
+      style.id = "sakthi-responsive-styles";
+      style.innerHTML = responsiveStyles;
+      document.head.appendChild(style);
+    }
+  }, []);
+}
+
 const commonParagraphStyle = {
   fontSize: 13,
   color: "#2a3a4d",
@@ -12,6 +132,10 @@ const commonParagraphStyle = {
 };
 
 const specialties = {
+  // ... All your specialties as in your original code ...
+  // (copy your specialties object here)
+
+
   gyn: {
     title: "Obstetrics and Gynecology",
     heading: "Maternity Care: Caring For The Empowered Woman Of Today",
@@ -431,108 +555,34 @@ At Sakthi hospital in addition to open surgery, we also offer advanced surgical 
   },
 
 
+
+
+
+
 };
-
-// Responsive styles injected once
-const responsiveStyles = `
-.sakthi-main-grid {
-  display: grid;
-  grid-template-columns: 50% 40%;
-  gap: 32px 200px;
-  max-width: 1100px;
-  margin: auto;
-  margin-top: -120px;
-  margin-left: 80px;
-  box-sizing: border-box;
-}
-.sakthi-image-doctor-wrapper {
-  position: relative;
-  min-width: 320px;
-}
-.sakthi-main-image {
-  width: 320px;
-  height: 320px;
-  object-fit: cover;
-  border-radius: 24px;
-  box-shadow: 0 6px 32px rgba(0,0,0,0.08);
-  background: #fff;
-}
-.sakthi-doctor-card {
-  position: absolute;
-  right: 200px;
-  bottom: 140px;
-  background: #fff;
-  border-radius: 20px;
-  padding: 24px;
-  width: 340px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.09);
-  margin-bottom: -122px;
-}
-@media (max-width: 1200px) {
-  .sakthi-main-grid {
-    grid-template-columns: 1fr;
-    gap: 32px 0;
-    margin-left: 0;
-    max-width: 100vw;
-  }
-  .sakthi-image-doctor-wrapper {
-    min-width: 0;
-    width: 100%;
-    margin-bottom: 32px;
-  }
-  .sakthi-main-image {
-    width: 100%;
-    max-width: 340px;
-    height: 220px;
-    margin: 0 auto;
-    display: block;
-  }
-  .sakthi-doctor-card {
-    position: static;
-    width: 100%;
-    max-width: 340px;
-    margin: 0 auto 0 auto;
-  }
-}
-@media (max-width: 700px) {
-  .sakthi-main-grid {
-    grid-template-columns: 1fr;
-    gap: 24px 0;
-    padding: 0 4vw;
-    margin-top: 0;
-  }
-  .sakthi-main-image {
-    width: 100%;
-    height: 160px;
-    border-radius: 14px;
-  }
-  .sakthi-doctor-card {
-    padding: 12px;
-    border-radius: 12px;
-    width: 100%;
-    max-width: 100%;
-  }
-}
-`;
-
-function useInjectStyles() {
-  React.useEffect(() => {
-    if (!document.getElementById("sakthi-responsive-styles")) {
-      const style = document.createElement("style");
-      style.id = "sakthi-responsive-styles";
-      style.innerHTML = responsiveStyles;
-      document.head.appendChild(style);
-    }
-  }, []);
-}
 
 const SpecialtyDetail = ({ data }) => {
   return (
-    <div style={{ padding: "60px 20px", fontFamily: "Poppin, sans-serif" }}>
+    <div
+      style={{
+        padding: "60px 20px",
+        fontFamily: "Poppins, sans-serif",
+        marginBottom: 40,
+      }}
+    >
       <div className="sakthi-main-grid">
         {/* Main Content */}
-        <div>
-          <h1 style={{ fontSize: 40, color: "#f5007e", fontWeight: 600 }}>
+        <div className="sakthi-inner-section">
+          <h1
+            style={{
+              fontSize: 40,
+              color: "#f5007e",
+              fontWeight: 600,
+              marginLeft: 0,
+              paddingLeft: 0,
+              textAlign: "left",
+            }}
+          >
             {data.title}
           </h1>
           {data.heading && (
@@ -542,12 +592,17 @@ const SpecialtyDetail = ({ data }) => {
                 fontWeight: 500,
                 color: "#2a3a4d",
                 marginTop: 24,
+                marginLeft: 0,
+                paddingLeft: 0,
+                textAlign: "left",
               }}
             >
               {data.heading}
             </h2>
           )}
-          {data.paragraph}
+          <div style={{ marginLeft: 0, paddingLeft: 0, textAlign: "left" }}>
+            {data.paragraph}
+          </div>
         </div>
 
         {/* Image & Doctors */}
@@ -566,12 +621,12 @@ const SpecialtyDetail = ({ data }) => {
               }}
             >
               <div>
-                <div
-                  style={{ fontWeight: 700, fontSize: 20, color: "#2a3a4d" }}
-                >
+                <div style={{ fontWeight: 700, fontSize: 20, color: "#2a3a4d" }}>
                   Available Doctor
                 </div>
-                <div style={{ fontSize: 11, color: "#7a8ba6" }}>Select Doctor</div>
+                <div style={{ fontSize: 11, color: "#7a8ba6" }}>
+                  Select Doctor
+                </div>
               </div>
               <button style={{ background: "none", border: "none" }}>
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
@@ -616,7 +671,9 @@ const SpecialtyDetail = ({ data }) => {
                     />
                   </span>
                   <div>
-                    <div style={{ fontWeight: 600, fontSize: 15 }}>{doc.name}</div>
+                    <div style={{ fontWeight: 600, fontSize: 15 }}>
+                      {doc.name}
+                    </div>
                     <div
                       style={{
                         fontSize: 10,
@@ -635,11 +692,30 @@ const SpecialtyDetail = ({ data }) => {
         {/* Lists Section */}
         {Array.isArray(data.lists) && (
           <>
-            <div>
+            <div className="sakthi-inner-section">
               {data.lists[0] && (
                 <>
-                  <h3 style={{ color: "#f5007e", marginBottom: 6 }}>{data.lists[0].title}</h3>
-                  <ul style={{ fontSize: 13, color: "#2a3a4d", marginLeft: 18 }}>
+                  <h3
+                    style={{
+                      color: "#f5007e",
+                      marginBottom: 6,
+                      marginLeft: 0,
+                      paddingLeft: 0,
+                      textAlign: "left",
+                    }}
+                  >
+                    {data.lists[0].title}
+                  </h3>
+                  <ul
+                    style={{
+                      fontSize: 13,
+                      color: "#2a3a4d",
+                      marginLeft: 0,
+                      paddingLeft: 0,
+                      listStylePosition: "inside",
+                      textAlign: "left",
+                    }}
+                  >
                     {data.lists[0].items.map((item, i) => (
                       <li key={i}>{item}</li>
                     ))}
@@ -648,8 +724,27 @@ const SpecialtyDetail = ({ data }) => {
               )}
               {data.lists[2] && (
                 <>
-                  <h3 style={{ color: "#f5007e", marginTop: 20 }}>{data.lists[2].title}</h3>
-                  <ul style={{ fontSize: 13, color: "#2a3a4d", marginLeft: 18 }}>
+                  <h3
+                    style={{
+                      color: "#f5007e",
+                      marginTop: 20,
+                      marginLeft: 0,
+                      paddingLeft: 0,
+                      textAlign: "left",
+                    }}
+                  >
+                    {data.lists[2].title}
+                  </h3>
+                  <ul
+                    style={{
+                      fontSize: 13,
+                      color: "#2a3a4d",
+                      marginLeft: 0,
+                      paddingLeft: 0,
+                      listStylePosition: "inside",
+                      textAlign: "left",
+                    }}
+                  >
                     {data.lists[2].items.map((item, i) => (
                       <li key={i}>{item}</li>
                     ))}
@@ -657,11 +752,30 @@ const SpecialtyDetail = ({ data }) => {
                 </>
               )}
             </div>
-            <div>
+            <div className="sakthi-inner-section" style={{ marginTop: 32 }}>
               {data.lists[1] && (
                 <>
-                  <h3 style={{ color: "#f5007e", marginBottom: 6 }}>{data.lists[1].title}</h3>
-                  <ul style={{ fontSize: 13, color: "#2a3a4d", marginLeft: 18 }}>
+                  <h3
+                    style={{
+                      color: "#f5007e",
+                      marginBottom: 6,
+                      marginLeft: 0,
+                      paddingLeft: 0,
+                      textAlign: "left",
+                    }}
+                  >
+                    {data.lists[1].title}
+                  </h3>
+                  <ul
+                    style={{
+                      fontSize: 13,
+                      color: "#2a3a4d",
+                      marginLeft: 0,
+                      paddingLeft: 0,
+                      listStylePosition: "inside",
+                      textAlign: "left",
+                    }}
+                  >
                     {data.lists[1].items.map((item, i) => (
                       <li key={i}>{item}</li>
                     ))}
@@ -670,8 +784,27 @@ const SpecialtyDetail = ({ data }) => {
               )}
               {data.lists[3] && (
                 <>
-                  <h3 style={{ color: "#f5007e", marginTop: 20 }}>{data.lists[3].title}</h3>
-                  <ul style={{ fontSize: 13, color: "#2a3a4d", marginLeft: 18 }}>
+                  <h3
+                    style={{
+                      color: "#f5007e",
+                      marginTop: 20,
+                      marginLeft: 0,
+                      paddingLeft: 0,
+                      textAlign: "left",
+                    }}
+                  >
+                    {data.lists[3].title}
+                  </h3>
+                  <ul
+                    style={{
+                      fontSize: 13,
+                      color: "#2a3a4d",
+                      marginLeft: 0,
+                      paddingLeft: 0,
+                      listStylePosition: "inside",
+                      textAlign: "left",
+                    }}
+                  >
                     {data.lists[3].items.map((item, i) => (
                       <li key={i}>{item}</li>
                     ))}
@@ -693,8 +826,8 @@ const Itemdetail = ({ slug }) => {
     return (
       <>
         {Object.keys(specialties).map((key) => (
-           <div key={key} style={{ marginBottom: "80px" }}>
-          <SpecialtyDetail key={key} data={specialties[key]} />
+          <div key={key} style={{ marginBottom: "80px" }}>
+            <SpecialtyDetail key={key} data={specialties[key]} />
           </div>
         ))}
       </>
@@ -706,8 +839,8 @@ const Itemdetail = ({ slug }) => {
       <>
         {slug.map((s) =>
           specialties[s] ? (
-              <div key={s} style={{ marginBottom: "80px" }}>
-            <SpecialtyDetail key={s} data={specialties[s]} />
+            <div key={s} style={{ marginBottom: "80px" }}>
+              <SpecialtyDetail key={s} data={specialties[s]} />
             </div>
           ) : null
         )}
@@ -726,6 +859,5 @@ const Itemdetail = ({ slug }) => {
 
   return <SpecialtyDetail data={data} />;
 };
-
 
 export default Itemdetail;
