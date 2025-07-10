@@ -1,12 +1,21 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faEye,
-  faHeart,
-  faShareAlt,
-} from "@fortawesome/free-solid-svg-icons";
+import { faFacebookF, faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons";
 
-// Sample data
+// Import your images from the assets folder
+import img1 from "../assets/blog1.jpg";
+import img2 from "../assets/blog2.jpg";
+import img3 from "../assets/blog3.jpg";
+import img4 from "../assets/blog4.jpg";
+import img5 from "../assets/blog5.jpg";
+import img6 from "../assets/blog6.jpg";
+import img7 from "../assets/blog7.jpg";
+import img8 from "../assets/blog8.jpg";
+import img9 from "../assets/blog9.jpg";
+import img10 from "../assets/blog10.jpg";
+
+// Sample data with image property
 const blogItems = [
   {
     id: 1,
@@ -14,6 +23,7 @@ const blogItems = [
     author: "Debbi Blanco",
     date: "March 8",
     category: "emergency",
+    image: img1,
   },
   {
     id: 2,
@@ -21,6 +31,7 @@ const blogItems = [
     author: "Andrew Smith",
     date: "March 5",
     category: "pediatric",
+    image: img2,
   },
   {
     id: 3,
@@ -28,6 +39,7 @@ const blogItems = [
     author: "Isabelle Norman",
     date: "March 2",
     category: "cardiology",
+    image: img3,
   },
   {
     id: 4,
@@ -35,6 +47,7 @@ const blogItems = [
     author: "Michael Johnson",
     date: "Feb 28",
     category: "psychiatry",
+    image: img4,
   },
   {
     id: 5,
@@ -42,6 +55,7 @@ const blogItems = [
     author: "Nathalie Poetry",
     date: "Feb 26",
     category: "others",
+    image: img5,
   },
   {
     id: 6,
@@ -49,6 +63,7 @@ const blogItems = [
     author: "Isabelle Norman",
     date: "Feb 25",
     category: "others",
+    image: img6,
   },
   {
     id: 7,
@@ -56,6 +71,7 @@ const blogItems = [
     author: "Dr. Lisa Berry",
     date: "Feb 20",
     category: "pediatric",
+    image: img7,
   },
   {
     id: 8,
@@ -63,6 +79,7 @@ const blogItems = [
     author: "Dr. Harry Lynn",
     date: "Feb 18",
     category: "emergency",
+    image: img8,
   },
   {
     id: 9,
@@ -70,6 +87,7 @@ const blogItems = [
     author: "Dr. Harsha Patel",
     date: "Feb 15",
     category: "cardiology",
+    image: img9,
   },
   {
     id: 10,
@@ -77,12 +95,15 @@ const blogItems = [
     author: "Dr. Nancy Flint",
     date: "Feb 14",
     category: "psychiatry",
+    image: img10,
   },
 ];
 
 const Blogitem = ({ selectedCategory = "all", viewMode = "grid" }) => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
   const itemsPerPage = 9;
+  const navigate = useNavigate();
 
   useEffect(() => {
     setCurrentPage(1);
@@ -98,7 +119,7 @@ const Blogitem = ({ selectedCategory = "all", viewMode = "grid" }) => {
   const currentItems = filteredItems.slice(startIdx, startIdx + itemsPerPage);
 
   const containerStyle = {
-    maxWidth: "1200px",
+    maxWidth: "1150px",
     margin: "0 auto",
     padding: "40px 16px",
   };
@@ -107,27 +128,37 @@ const Blogitem = ({ selectedCategory = "all", viewMode = "grid" }) => {
     display: "grid",
     gridTemplateColumns:
       viewMode === "grid" ? "repeat(auto-fill, minmax(300px, 1fr))" : "1fr",
-    gap: "24px",
+    gap: "10px",
   };
 
   const cardStyle = {
-    borderRadius: "12px",
+    borderRadius: "18px",
     border: "1px solid #e0f2fe",
-    padding: "16px",
+    padding: "0 0 16px 0",
     backgroundColor: "#fff",
-    boxShadow: "0 1px 4px rgba(0, 0, 0, 0.04)",
+    boxShadow: "0 2px 6px rgba(0, 0, 0, 0.06)",
     display: "flex",
     flexDirection: viewMode === "grid" ? "column" : "row",
     gap: "16px",
     alignItems: viewMode === "grid" ? "stretch" : "center",
+    transition: "all 0.3s ease",
+    cursor: "pointer",
+    transform: "translateY(0)",
   };
 
-  const imagePlaceholderStyle = {
-    flexShrink: 0,
-    width: viewMode === "grid" ? "100%" : "180px",
-    height: "160px",
-    backgroundColor: "#f3f4f6",
-    borderRadius: "8px",
+  const imageContainerStyle = {
+    width: "100%",
+    height: "200px",
+    borderRadius: "14px 14px 0 0",
+    overflow: "hidden",
+  };
+
+  const imageStyle = {
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    objectPosition: "center",
+    display: "block",
   };
 
   const contentStyle = {
@@ -143,6 +174,7 @@ const Blogitem = ({ selectedCategory = "all", viewMode = "grid" }) => {
     fontSize: "12px",
     color: "#6b7280",
     marginBottom: "8px",
+    padding: "0 12px",
     fontFamily: "Poppins, sans-serif",
   };
 
@@ -156,14 +188,20 @@ const Blogitem = ({ selectedCategory = "all", viewMode = "grid" }) => {
     fontSize: "16px",
     fontWeight: 700,
     color: "#1f2937",
-    marginBottom: "8px",
     fontFamily: "Figtree, sans-serif",
+    marginBottom: "8px",
+    padding: "0 12px",
+    maxWidth: "85%",
+    wordBreak: "break-word",
+    textAlign: "left",
   };
 
   const authorStyle = {
     fontSize: "13px",
     color: "#6b7280",
     fontFamily: "Poppins, sans-serif",
+    padding: "0 12px",
+    textAlign: "left",
   };
 
   const paginationStyle = {
@@ -179,33 +217,98 @@ const Blogitem = ({ selectedCategory = "all", viewMode = "grid" }) => {
     padding: "6px 12px",
     borderRadius: "6px",
     border: "1px solid #d1d5db",
-    backgroundColor: active ? "#2563eb" : "#fff",
-    color: active ? "#fff" : "#4b5563",
+    backgroundColor: active ? "#307bc4" : "#fff",
+    color: active ? "#fff" : "#307bc4",
     cursor: "pointer",
     fontSize: "14px",
     fontWeight: 500,
   });
 
+  // Handle card click
+  const handleCardClick = (id) => {
+    navigate(`/blogdetails/${id}`);
+  };
+
+  // Social icon click handlers
+  const handleIconClick = (e, url) => {
+    e.stopPropagation();
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <div style={containerStyle}>
       <div style={gridStyle}>
-        {currentItems.map((item) => (
-          <div key={item.id} style={cardStyle}>
-            <div style={imagePlaceholderStyle}></div>
-            <div style={contentStyle}>
-              <div style={metaStyle}>
-                <span>{item.date}</span>
-                <div style={iconStyle}>
-                  <FontAwesomeIcon icon={faEye} />
-                  <FontAwesomeIcon icon={faHeart} />
-                  <FontAwesomeIcon icon={faShareAlt} />
-                </div>
+        {currentItems.map((item, index) => {
+          const isHovered = hoveredIndex === index;
+          return (
+            <div
+              key={item.id}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              onClick={() => handleCardClick(item.id)}
+              style={{
+                ...cardStyle,
+                boxShadow: isHovered
+                  ? "0 12px 24px rgba(0, 0, 0, 0.12)"
+                  : cardStyle.boxShadow,
+                transform: isHovered ? "translateY(-6px)" : "translateY(0)",
+              }}
+            >
+              <div style={imageContainerStyle}>
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  style={imageStyle}
+                />
               </div>
-              <div style={titleStyle}>{item.title}</div>
-              <div style={authorStyle}>{item.author}</div>
+              <div style={contentStyle}>
+                <div style={metaStyle}>
+                  <span>{item.date}</span>
+                  <div style={iconStyle}>
+                    <span
+                      style={{ cursor: "pointer" }}
+                      onClick={(e) =>
+                        handleIconClick(
+                          e,
+                          "https://www.facebook.com/sakthihospitals/"
+                        )
+                      }
+                      title="Facebook"
+                    >
+                      <FontAwesomeIcon icon={faFacebookF} />
+                    </span>
+                    <span
+                      style={{ cursor: "pointer" }}
+                      onClick={(e) =>
+                        handleIconClick(
+                          e,
+                          "https://www.instagram.com/sakthihospitals/"
+                        )
+                      }
+                      title="Instagram"
+                    >
+                      <FontAwesomeIcon icon={faInstagram} />
+                    </span>
+                    <span
+                      style={{ cursor: "pointer" }}
+                      onClick={(e) =>
+                        handleIconClick(
+                          e,
+                          "https://twitter.com/sakthihospital"
+                        )
+                      }
+                      title="Twitter"
+                    >
+                      <FontAwesomeIcon icon={faTwitter} />
+                    </span>
+                  </div>
+                </div>
+                <div style={titleStyle}>{item.title}</div>
+                <div style={authorStyle}>{item.author}</div>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       <div style={paginationStyle}>

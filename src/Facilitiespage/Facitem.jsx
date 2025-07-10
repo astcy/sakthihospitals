@@ -298,7 +298,7 @@ const FacilityDetail = ({ data }) => {
       <div className="sakthi-main-grid">
         {/* Main Content */}
         <div>
-          <h1 style={{ fontSize: 40, color: "#f5007e", fontWeight: 600, ...leftAlign }}>
+          <h1 style={{ fontSize: 40, color: "#3b82c4", fontWeight: 600, ...leftAlign }}>
             {data.title}
           </h1>
           {data.heading && (

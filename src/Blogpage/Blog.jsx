@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Header from "../Header";
+import Header1 from "../Header1";
 import Blogbar from "./Blogbar";
 import Blogitem from "./Blogitem";
 import Footer from "../Footer";
@@ -51,7 +51,7 @@ const Blog = () => {
       <style>{globalStyle}</style>
 
       {/* Page Sections */}
-      <Header />
+      <Header1 />
       <Blogbar onSelect={setSelectedCategory} onViewChange={setViewMode} /> {/* ✅ Pass onViewChange */}
       <Blogitem selectedCategory={selectedCategory} viewMode={viewMode} /> {/* ✅ Pass viewMode */}
       <Footer />

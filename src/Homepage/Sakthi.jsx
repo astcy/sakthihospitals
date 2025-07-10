@@ -287,15 +287,28 @@ const Sakthi = () => (
           <div className="sakthi-desc">
             Sakthi Hospital has a team of reputed doctors who are highly qualified and have many years of experience as diagnostician.
           </div>
-          <div className="sakthi-play-row">
-            <span className="sakthi-play-btn" aria-label="See how we work">
-              <svg width="20" height="20" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="11" cy="11" r="10" fill="transparent" stroke="#307bc4" strokeWidth="1" />
-                <polygon points="8,6.5 16,11 8,15.5" fill="#307bc4" />
-              </svg>
-            </span>
-            See how we work
-          </div>
+         <div
+  className="sakthi-play-row"
+  style={{ cursor: "pointer", display: "flex", alignItems: "center", gap: 8 }}
+  onClick={() => window.open("https://youtu.be/GWtlEUmtcwE?si=wlsWg8K-8ObFGpqE", "_blank", "noopener,noreferrer")}
+  tabIndex={0}
+  role="button"
+  aria-label="See how we work"
+  onKeyPress={e => {
+    if (e.key === "Enter" || e.key === " ") {
+      window.open("https://youtu.be/GWtlEUmtcwE?si=wlsWg8K-8ObFGpqE", "_blank", "noopener,noreferrer");
+    }
+  }}
+>
+  <span className="sakthi-play-btn" aria-label="See how we work">
+    <svg width="20" height="20" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="11" cy="11" r="10" fill="transparent" stroke="#307bc4" strokeWidth="1" />
+      <polygon points="8,6.5 16,11 8,15.5" fill="#307bc4" />
+    </svg>
+  </span>
+  See how we work
+</div>
+
         </div>
         <div className="sakthi-right">
           <div className="sakthi-image-card">

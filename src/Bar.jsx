@@ -445,6 +445,7 @@ export default function Bar({
               margin-left: 0 !important;
               max-width: 100vw !important;
               box-sizing: border-box;
+                      margin-top: 10px !important; /* <-- Added top margin */
             }
             .bar-responsive-row {
               flex-direction: column !important;

@@ -221,6 +221,7 @@ export default function Bar1({ active, onSelect }) {
               margin-left: 0 !important;
               max-width: 100vw !important;
               box-sizing: border-box;
+                                    margin-top: 10px !important; /* <-- Added top margin */
             }
             .bar1-responsive-row {
               flex-direction: column !important;

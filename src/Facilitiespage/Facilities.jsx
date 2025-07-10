@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Header1 from "../Header1";
+import Header from "../Header";
 import Bar1 from "../Bar1";
 import Facitem from "./Facitem";
 import ImageOnlySection from "../Specialitiespage/imagetext";
@@ -52,7 +52,7 @@ const Facilities = () => {
       <style>{globalStyle}</style>
 
       {/* Page Components */}
-      <Header1 />
+      <Header />
       <Bar1 active={activeFacility} onSelect={setActiveFacility} />
       <Facitem slug={activeFacility} />
       <ImageOnlySection />

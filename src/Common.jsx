@@ -1,11 +1,14 @@
 import React from "react";
 import { FaSmile } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import doctor4 from "./assets/doctor4.png"; // <-- Import your doctor image
 
 const Common = ({
   title = "Contact Us",
   subtext = "Kindly reach us to get the fastest response and treatment.",
 }) => {
   const [isMobile, setIsMobile] = React.useState(window.innerWidth < 768);
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
@@ -65,6 +68,29 @@ const Common = ({
     fontFamily: "'Poppins', sans-serif",
     marginBottom: 14,
     letterSpacing: 0.1,
+    display: "flex",
+    gap: 2,
+    alignItems: "center",
+  };
+
+  const breadcrumbLink = {
+    color: "#94aebb",
+    cursor: "pointer",
+    fontWeight: 500,
+    fontFamily: "'Poppins', sans-serif",
+    background: "none",
+    border: "none",
+    padding: 0,
+    fontSize: "14px",
+  };
+
+  const breadcrumbCurrent = {
+    color: "#94aebb",
+    fontWeight: 500,
+    fontFamily: "'Poppins', sans-serif",
+    fontSize: "14px",
+    textDecoration: "none",
+    cursor: "default",
   };
 
   const heading = {
@@ -103,7 +129,7 @@ const Common = ({
 
   // Main card background
   const backgroundBox = {
-    marginTop:"50px",
+    marginTop: "50px",
     background: "#e2e8f0",
     borderRadius: "10px",
     width: isMobile ? "92%" : "420px",
@@ -139,18 +165,20 @@ const Common = ({
     background: "#dbeafe",
     marginBottom: "10px",
     display: "inline-block",
+    objectFit: "cover",
+    objectPosition: "center",
   };
 
   const doctorName = {
     fontWeight: 600,
-    fontSize: "15px",
+    fontSize: "12px",
     fontFamily: "'Figtree', sans-serif",
     color: "#92a2af",
     marginBottom: 2,
   };
 
   const doctorSpec = {
-    fontSize: "12px",
+    fontSize: "10px",
     color: "#90a2b0",
     marginBottom: 7,
     fontFamily: "'Poppins', sans-serif",
@@ -217,7 +245,31 @@ const Common = ({
       <div style={waveGradient}></div>
       {/* Left */}
       <div style={leftContent}>
-        <div style={breadcrumb}>Home / Blog / Read</div>
+        <div style={breadcrumb}>
+          <button
+            style={breadcrumbLink}
+            onClick={() => navigate("/")}
+            aria-label="Go to Home"
+          >
+            Home
+          </button>
+          <span style={{ margin: "0 4px" }}>/</span>
+          <button
+            style={breadcrumbLink}
+            onClick={() => navigate("/blogs")}
+            aria-label="Go to Blog"
+          >
+            Blog
+          </button>
+          <span style={{ margin: "0 4px" }}>/</span>
+          <button
+            style={breadcrumbLink}
+            onClick={() => navigate("/blogdetails")}
+            aria-label="Go to Read"
+          >
+            Read
+          </button>
+        </div>
         <h1 style={heading}>{title}</h1>
         <p style={subTextStyle}>{subtext}</p>
       </div>
@@ -226,14 +278,17 @@ const Common = ({
         <div style={backgroundBox}></div>
         {/* Doctor Card (top, 40% from top) */}
         <div style={doctorCard}>
-         <div style={{ display: "flex", alignItems: "center", marginBottom: 10 }}>
-  <div style={avatar}></div>
-  <div style={{ marginLeft: 10 }}>
-    <div style={doctorName}>Dr. David James, MD</div>
-    <div style={doctorSpec}>Pediatrician</div>
-  </div>
-</div>
-
+          <div style={{ display: "flex", alignItems: "center", marginBottom: 10 }}>
+            <img
+              src={doctor4}
+              alt="Doctor"
+              style={avatar}
+            />
+            <div style={{ marginLeft: 10 ,}}>
+              <div style={doctorName}>Dr. Sivakamu Dhandapani</div>
+              <div style={doctorSpec}>Pediatrician</div>
+            </div>
+          </div>
           <div style={doctorTime}>Available Mon – Sat, 7 AM – 9 PM</div>
         </div>
         {/* Stat Card (bottom, 60% from bottom) */}

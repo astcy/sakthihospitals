@@ -5,6 +5,7 @@ import { faTh, faList } from "@fortawesome/free-solid-svg-icons";
 const Blogbar = ({ onSelect, onViewChange }) => {
   const [active, setActive] = useState("All");
   const [viewMode, setViewMode] = useState("grid");
+  const [hovered, setHovered] = useState(null);
 
   const categories = [
     "All",
@@ -16,23 +17,23 @@ const Blogbar = ({ onSelect, onViewChange }) => {
   ];
 
   const containerStyle = {
-    maxWidth: "1200px",
-    margin: "40px auto 0",
+    maxWidth: "1140px",
+    margin: "80px auto 0",
     padding: "24px 16px",
     backgroundColor: "#fff",
   };
 
   const breadcrumbStyle = {
     fontSize: "12px",
-    color: "#2563eb",
-    fontFamily: "Arial, sans-serif",
+    color: "#a5b3be",
+    fontFamily: "Poppins, sans-serif",
     marginBottom: "4px",
   };
 
   const titleStyle = {
     fontSize: "32px",
     fontWeight: 800,
-    color: "#1e3a8a",
+    color: "#274760",
     marginBottom: "16px",
     fontFamily: "Figtree, sans-serif",
   };
@@ -53,25 +54,32 @@ const Blogbar = ({ onSelect, onViewChange }) => {
     flexWrap: "wrap",
   };
 
-  const buttonStyle = (label) => ({
-    fontSize: "12px",
-    fontWeight: 600,
-    borderRadius: "999px",
-    padding: "4px 16px",
-    border: label === active ? "none" : "1px solid #93c5fd",
-    backgroundColor: label === active ? "#2563eb" : "#fff",
-    color: label === active ? "#fff" : "#2563eb",
-    cursor: "pointer",
-    outline: "none",
-    transition: "all 0.2s ease",
-  });
+  const buttonStyle = (label) => {
+    const isActive = label === active;
+    const isHovered = label === hovered;
+
+    const isColored = isActive || isHovered;
+
+    return {
+      fontSize: "12px",
+      fontWeight: 300,
+      borderRadius: "999px",
+      padding: "4px 16px",
+      border: isColored ? "none" : "1px solid #498bcb",
+      backgroundColor: isColored ? "#307bc4" : "#fff",
+      color: isColored ? "#fff" : "#8598a5",
+      cursor: "pointer",
+      outline: "none",
+      transition: "all 0.2s ease",
+    };
+  };
 
   const infoStyle = {
     display: "flex",
     alignItems: "center",
     gap: "12px",
     fontSize: "12px",
-    color: "#60a5fa",
+    color: "#c9d1d7",
     fontWeight: 600,
     fontFamily: "Arial, sans-serif",
   };
@@ -79,7 +87,7 @@ const Blogbar = ({ onSelect, onViewChange }) => {
   const iconButtonStyle = (mode) => ({
     background: "none",
     border: "none",
-    color: viewMode === mode ? "#2563eb" : "#60a5fa",
+    color: viewMode === mode ? "#aebac3" : "#307bc4",
     cursor: "pointer",
     fontSize: "16px",
   });
@@ -106,6 +114,8 @@ const Blogbar = ({ onSelect, onViewChange }) => {
               key={label}
               style={buttonStyle(label)}
               onClick={() => handleCategoryClick(label)}
+              onMouseEnter={() => setHovered(label)}
+              onMouseLeave={() => setHovered(null)}
             >
               {label}
             </button>
