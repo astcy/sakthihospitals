@@ -312,8 +312,8 @@ const Sakthi = () => (
         </div>
         <div className="sakthi-right">
           <div className="sakthi-image-card">
-            <img src={firstImage} alt="Sakthi Hospital" className="sakthi-img-main" />
-            <img src={elementsImage} alt="Decorative Elements" className="sakthi-img-overlay" />
+            <img src={firstImage} alt="Sakthi Hospital" className="sakthi-img-main" loading="lazy"/>
+            <img src={elementsImage} alt="Decorative Elements" className="sakthi-img-overlay" loading="lazy" />
           </div>
         </div>
       </div>
