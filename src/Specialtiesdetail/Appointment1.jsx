@@ -1,6 +1,10 @@
 import React from "react";
 import pinkBg from "../assets/pinkBg.png"; // Pink background image
 import shape2 from "../assets/shape2.png"; // New image to show instead of doctor
+import { database } from "../firebase"; // Adjust path if needed
+import { ref, set } from "firebase/database";
+import { toast } from "react-toastify";
+
 
 const styles = {
   main: {
@@ -166,6 +170,62 @@ function Appointment1() {
         pinkBg: styles.pinkBg,
       };
 
+
+const [name, setName] = React.useState("");
+const [phone, setPhone] = React.useState("");
+const [mrn, setMrn] = React.useState("");
+const [preferredDate, setPreferredDate] = React.useState("");
+const [preferredTime, setPreferredTime] = React.useState("");
+const [reason, setReason] = React.useState("new-patient");
+const [department, setDepartment] = React.useState("obstetrics");
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  if (!name || !phone || !mrn || !preferredDate || !preferredTime) {
+    toast.error("❌ Please fill in all required fields");
+    return;
+  }
+
+  const today = new Date();
+  const dateKey = `${String(today.getDate()).padStart(2, "0")}-${String(
+    today.getMonth() + 1
+  ).padStart(2, "0")}-${today.getFullYear()}`;
+
+  const appointmentId = `appointment-${Date.now()}`;
+  const appointmentRef = ref(database, `Appointments/${dateKey}/${appointmentId}`);
+
+  const appointmentData = {
+    name,
+    phone,
+    mrn,
+    preferredDate,
+    preferredTime,
+    reason,
+    department,
+    submittedAt: new Date().toISOString(),
+  };
+
+  try {
+    await set(appointmentRef, appointmentData);
+    toast.success("✅ Appointment booked successfully!");
+    // Reset form
+    setName("");
+    setPhone("");
+    setMrn("");
+    setPreferredDate("");
+    setPreferredTime("");
+    setReason("new-patient");
+    setDepartment("obstetrics");
+  } catch (error) {
+    console.error("Error saving appointment:", error);
+    toast.error("❌ Failed to book appointment. Try again.");
+  }
+};
+
+
+
+
   return (
     <main style={styles.main}>
       <div style={responsiveStyles.container}>
@@ -176,44 +236,68 @@ function Appointment1() {
           <h1 style={{ fontSize: "32px", fontWeight: 500, color: "#0f172a", margin: "6px 0 28px", fontFamily: "'Figtree', sans-serif" }}>
             Appointment
           </h1>
-          <form style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+          <form style={{ display: "flex", flexDirection: "column", gap: "20px" }}   onSubmit={handleSubmit} >
             <div style={{ display: "flex", flexDirection: isMobile ? "column" : "row", gap: "20px" }}>
               <div style={{ flex: 1 }}>
                 <label style={styles.label}>Name</label>
-                <input style={styles.input} placeholder="David John" type="text" />
+                <input style={styles.input} placeholder="David John" type="text" 
+                value={name}
+                 onChange={(e) => setName(e.target.value)}
+/>
               </div>
               <div style={{ flex: 1 }}>
                 <label style={styles.label}>Phone Number</label>
-                <input style={styles.input} placeholder="(123) 456 - 789" type="tel" />
+                <input style={styles.input} placeholder="(123) 456 - 789" type="tel" 
+                 value={phone}
+  onChange={(e) => setPhone(e.target.value)}
+                />
               </div>
             </div>
             <div>
               <label style={styles.label}>Medical Record Number</label>
-              <input style={styles.input} placeholder="123456-7890-0987" type="text" />
+              <input style={styles.input} placeholder="123456-7890-0987" type="text"
+               value={mrn}
+  onChange={(e) => setMrn(e.target.value)}
+              />
             </div>
             <div style={{ display: "flex", flexDirection: isMobile ? "column" : "row", gap: "20px" }}>
               <div style={{ flex: 1 }}>
                 <label style={styles.label}>Preferred Date</label>
-                <input style={styles.input} type="date" />
+                <input style={styles.input} type="date" 
+                value={preferredDate}
+  onChange={(e) => setPreferredDate(e.target.value)}
+                />
               </div>
               <div style={{ flex: 1 }}>
                 <label style={styles.label}>Preferred Time</label>
-                <input style={styles.input} type="time" />
+                <input style={styles.input} type="time" 
+                  value={preferredTime}
+  onChange={(e) => setPreferredTime(e.target.value)}
+                />
               </div>
             </div>
             <fieldset style={{ border: "none", padding: 0 }}>
               <legend style={styles.legend}>Reason for Visit</legend>
               <div style={styles.radioGroup}>
                 <label style={styles.radioLabel}>
-                  <input name="reason" type="radio" value="routine" />
+                  <input name="reason" type="radio" value="routine" 
+                   checked={reason === "routine"}
+        onChange={(e) => setReason(e.target.value)}
+                  />
                   Routine Checkup
                 </label>
                 <label style={styles.radioLabel}>
-                  <input name="reason" type="radio" value="new-patient" defaultChecked />
+                  <input name="reason" type="radio" value="new-patient"
+                  checked={reason === "new-patient"}
+        onChange={(e) => setReason(e.target.value)} 
+                  />
                   New Patient Visit
                 </label>
                 <label style={styles.radioLabel}>
-                  <input name="reason" type="radio" value="specific-concern" />
+                  <input name="reason" type="radio" value="specific-concern" 
+                    checked={reason === "specific-concern"}
+        onChange={(e) => setReason(e.target.value)}
+                  />
                   Specific Concern
                 </label>
               </div>
@@ -222,19 +306,26 @@ function Appointment1() {
               <legend style={styles.legend}>Department</legend>
               <div style={styles.radioGroup}>
                 <label style={styles.radioLabel}>
-                  <input name="department" type="radio" value="pediatric" />
+                  <input name="department" type="radio" value="pediatric" 
+                     checked={department === "pediatric"}
+        onChange={(e) => setDepartment(e.target.value)}/>
                   Pediatric
                 </label>
                 <label style={styles.radioLabel}>
-                  <input name="department" type="radio" value="obstetrics" defaultChecked />
+                  <input name="department" type="radio" value="obstetrics"   checked={department === "obstetrics"}
+        onChange={(e) => setDepartment(e.target.value)} />
                   Obstetrics and Gynecology
                 </label>
                 <label style={styles.radioLabel}>
-                  <input name="department" type="radio" value="cardiology" />
+                  <input name="department" type="radio" value="cardiology"
+                   checked={department === "cardiology"}
+        onChange={(e) => setDepartment(e.target.value)} />
                   Cardiology
                 </label>
                 <label style={styles.radioLabel}>
-                  <input name="department" type="radio" value="neurology" />
+                  <input name="department" type="radio" value="neurology" 
+                    checked={department === "neurology"}
+        onChange={(e) => setDepartment(e.target.value)}/>
                   Neurology
                 </label>
               </div>

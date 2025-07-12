@@ -2,9 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube } from 'react-icons/fa';
 import logo from './assets/logo_1.png';
+import { toast } from 'react-toastify';
+import { database } from './firebase';
+import { ref, set } from "firebase/database";
 
 const Footer1 = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 900);
+const [email, setEmail] = useState('');
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 900);
@@ -209,6 +213,32 @@ const Footer1 = () => {
     opacity: 0.7,
     fontFamily: poppins,
   };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!email || !emailRegex.test(email)) {
+    toast.error("❌ Please enter a valid email address");
+    return;
+  }
+
+  // Format date as dd-mm-yyyy
+  const today = new Date();
+  const dateKey = `${String(today.getDate()).padStart(2, '0')}-${String(today.getMonth() + 1).padStart(2, '0')}-${today.getFullYear()}`;
+
+  // Create the path: Subscribers/12-07-2025/email1
+  const feedbackRef = ref(database, `Subscribers/${dateKey}`);
+  const uniqueKey = `email-${Date.now()}`; // optional: you can use a counter if preferred
+
+  try {
+    await set(ref(database, `Subscriberssecond/${dateKey}/${uniqueKey}`), email);
+    toast.success('✅ Thank you for subscribing!');
+    setEmail('');
+  } catch (error) {
+    console.error("Error saving to Firebase:", error);
+    toast.error('❌ Subscription failed. Try again.');
+  }
+};
 
   return (
     <footer style={{ background: 'none', position: 'relative', zIndex: 1 }}>
@@ -228,7 +258,7 @@ const Footer1 = () => {
             flexDirection: 'column',
             gap: '8px',
           }}
-          onSubmit={e => e.preventDefault()}
+onSubmit={handleSubmit}
         >
           <label style={emailLabelStyles}>Your Email</label>
           <div style={inputGroupStyles}>
@@ -236,6 +266,8 @@ const Footer1 = () => {
               type="email"
               placeholder="example@email.com"
               style={inputStyles}
+               value={email}
+  onChange={(e) => setEmail(e.target.value)}
               required
             />
             <button type="submit" style={buttonStyles}>
